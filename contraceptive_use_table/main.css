@@ -1,0 +1,55 @@
+body {
+    box-sizing: border-box;
+ font-family: "Roboto", sans-serif;   
+}
+
+.header {
+ width: 70%;   
+    margin-left: 16px;
+}
+
+h1 {
+    font-size: 1.75em;
+    margin-top: 2em;
+    font-weight: 700;
+    color: #0099FF;
+    text-transform: uppercase;
+}
+
+p {
+ text-align: justify;
+    line-height: 1.25em;
+}
+
+table {
+ padding: .75em;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    border: 7px solid #F4F4F4;
+}
+
+	th {
+		cursor: pointer;
+	}
+
+td, th {
+ padding: 1em;  
+    text-align: left;
+}
+
+#sources {
+    font-size: 12px;
+    font-style: italic;
+    color: rgb(0, 0,0);
+    font-style: italic;
+}
+
+a {
+color: #0099FF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(255, 0, 153);
+}
+
