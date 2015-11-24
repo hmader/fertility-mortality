@@ -1,0 +1,91 @@
+ .container {
+            width: 900px;
+        }
+        
+        #graphic {
+            padding-top: 60px;
+        }
+        
+        #sections {
+            position: relative;
+            display: inline-block;
+            width: 250px;
+            top: 0px;
+            z-index: 90;
+            padding-bottom: 250px;
+        }
+        
+        .step {
+            margin-bottom: 200px;
+            font-family: "TiemposTextWeb-Regular", "Georgia";
+            font-size: 16px;
+            line-height: 23px;
+            color: #767678;
+        }
+        
+         p.sources, .sources a, .note {
+             font-family: "TiemposTextWeb-Regular", "Georgia";
+             font-size: 12px;
+             line-height: 16px;
+             font-style: italic;
+         }
+        
+        #sections .title {
+            font-family: Arial, Helvetica, "san-serif";
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 2px;
+            color: #262626;
+            line-height: 1.2em;
+        }
+        
+        #extra-space {
+            height: 300px;
+        }
+        
+        #vis {
+            display: inline-block;
+            position: fixed;
+            top: 60px;
+            z-index: 1;
+            margin-left: 0;
+            font-size: 10px;
+        }
+        
+        .countries {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+        
+        .focused {
+            stroke-width: 1px;
+            stroke-opacity: 100%;
+/*            stroke: red;*/
+            fill: rgba(0, 0, 0, .7);
+        }
+        
+        .legendLinear text {
+            font-size: 9px;
+        }
+        
+        .myTooltip {
+            position: absolute;
+            z-index: 10;
+        }
+        
+        .myTooltip p {
+            background-color: rgba(255, 255, 255, .85);
+            padding: .5em 1em;
+            font-size: 12px;
+            line-height: 17px;
+            color: black;
+        }
+        
+        .tooltipHeader {
+            font-weight: 700;
+            font-size: 12.5px;
+        }
+
+.ital {
+ font-style: italic;   
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scrolling Sections</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/line.css" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div id='graphic'>
+            <div id='sections'>
+
+                <section class="intro">
+
+                </section>
+
+                <section class="step">
+                    <!-- case 0 -->
+                    <div class="title">Child Mortality</div>
+                    <p>Here is a look of the world mapped by Under-5 Mortality Rate (U5MR). The darker the red a country is, the higher the rate of under-5 deaths in that country.</p>
+                    <p class="sources">Source: <a href="https://www.cia.gov/">CIA</a>, <a href="http://www.worldbank.org/">World Bank</a></p>
+                </section>
+
+                <section class="step">
+                    <!-- case 1 -->
+                    <div class="title">lorem ipsum</div>
+                    <p>lorem ipsum</p>
+                </section>
+
+                <section class="step">
+                    <!-- case 2 -->
+                    <div class="title">lorem ipsum</div>
+                    <p>lorem ipsum</p>
+                </section>
+
+                <section class="step">
+                    <!-- case 3 -->
+                    <div class="title">Fertility Rates</div>
+                    <p>Now we look at the world in terms of fertility. Once again, the darker the country, the higher the rate (in this case, children per woman).</p>
+                </section>
+
+                <section class="step">
+                    <!-- case 4 -->
+                    <div class="title">These are the countries with the highest fertility rates:</div>
+                    <p><span class="NER">Niger</span>,
+                        <span class="BDI ital">Burundi</span>,
+                        <span class="MLI ital">Mali</span>,
+                        <span class="SOM ital">Somalia</span>,
+                        <span class="UGA ital">Uganda</span>,
+                        <span class="BFA ital">Burkina Faso</span>,
+                        <span class="ZMB ital">Zambia</span>,
+                        <span class="MWI ital">Malawi</span>,
+                        <span class="AGO ital">Angola</span>,
+                        <span class="AFG ital">Afghanistan</span>,
+                        <span class="SSD ital">South Sudan</span>,
+                        <span class="MOZ ital">Mozambique</span>,
+                        <span class="NGA ital">Nigeria</span>,
+                        <span class="MMR ital">Myanmar</span>,
+                        <span class="ETH ital">Ethiopia</span>,
+                        <span class="TLS ital">Timor-Leste</span>,
+                        <span class="BEN ital">Benin</span>,
+                        <span class="TZA ital">Tanzania</span>,
+                        <span class="GIN ital">Guinea</span>,
+                        <span class="SLE ital">Sierra Leone</span>,
+                        <span class="CMR ital">Cameroon</span>,
+                        <span class="LBR ital">Liberia</span>,
+                        <span class="COG ital">Republic of Congo</span>,
+                        <span class="COD ital">Democratic Republic of the Congo</span>,
+                        <span class="GNQ ital">Equitorial Guinea</span>
+                    </p>
+                    <p>16 of these are in the top 25 countries with the highest child mortality rates.</p>
+                </section>
+
+            </div>
+            <div id='vis'>
+            </div>
+            
+            <div id='vis2'>
+            </div>
+            
+            <div id="extra-space">
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <!--    <script src="d3-legend.min.js"></script>-->
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script src="js/my-mfreeman_scroller.js"></script>
+    <script src="js/world-data.js"></script>
+    <!--<script src="js/line_chart.js"></script>-->
+    <script src="js/my-scroller_settings.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+
+</html>
