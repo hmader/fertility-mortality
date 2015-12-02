@@ -6,10 +6,10 @@ function drawMultiples() {
             bottom: 30,
             left: 20
         },
-        m_width =  250 - m_margin.left - m_margin.right,
-        m_height = 200 - m_margin.top - m_margin.bottom;
+        m_width =  200 - m_margin.left - m_margin.right,
+        m_height = 150 - m_margin.top - m_margin.bottom;
 
-    var dotRadius = 2;
+    var dotRadius = 1;
     /*--------------------------------------------------------------------------
         Scale Variables & Setup
       --------------------------------------------------------------------------*/
@@ -42,7 +42,7 @@ function drawMultiples() {
       Nesting
      --------------------------------------------------------------------------*/
 
-    var measures = d3.keys(mixedDataset[0]).slice(4, 11); //
+    var measures = d3.keys(mixedDataset[0]).slice(7, 12); //
     console.log("MEASURES", measures);
 
     var newNest = [];

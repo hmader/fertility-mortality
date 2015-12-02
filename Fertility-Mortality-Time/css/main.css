@@ -7,6 +7,11 @@ svg {
     background-color: rgb(255, 255, 255);
 }
 
+.vis {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 svg rect:hover {
     opacity: .3;
 }
@@ -114,7 +119,7 @@ a:hover {
 }
 
 .sans {
- font-family: sans-serif;
+    font-family: sans-serif;
 }
 
 .orange {
@@ -129,12 +134,12 @@ a:hover {
     color: red;
 }
 
-.tooltip {
+.myTooltip {
     position: absolute;
     z-index: 10;
 }
 
-.tooltip p {
+.myTooltip p {
     background-color: rgba(255, 255, 255, .8);
     padding: .5em 1em;
     font-size: 12px;
@@ -148,6 +153,10 @@ a:hover {
 }
 
 .selected {
- border-color: #0099FF; 
+    border-color: #0099FF;
     background-color: #FFFFFF;
+}
+
+.hide {
+display: none;
 }
