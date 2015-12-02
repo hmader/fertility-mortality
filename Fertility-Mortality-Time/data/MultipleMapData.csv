@@ -1,0 +1,216 @@
+Country,CountryCode,Region,IncomeGroup,FertilityRate,IMR,HealthExpenditurePercentGDP,ContraceptivePrevalence,CommunicableDiseases,U5MR2014,PercentBelowPovertyLine
+Afghanistan,AFG,South Asia,Low income,5.33,115.08,8.6,21.2,46,93.9,36
+Albania,ALB,Europe & Central Asia,Upper middle income,1.5,12.75,6,null,5.1,14.4,14.3
+Algeria,DZA,Middle East & North Africa,Upper middle income,2.78,20.98,5.2,55.9,14.5,25.6,23
+American Samoa,ASM,East Asia & Pacific,Upper middle income,2.92,8.69,6.8,null,null,null,null
+Andorra,AND,Europe & Central Asia,High income: nonOECD,1.38,3.65,8.3,null,null,2.9,null
+Angola,AGO,Sub-Saharan Africa,Upper middle income,5.37,78.26,3.5,null,66.4,162.2,36.6
+Antigua and Barbuda,ATG,Latin America & Caribbean,High income: nonOECD,2.02,12.87,5.2,null,null,8.4,null
+Argentina,ARG,Latin America & Caribbean,High income: nonOECD,2.23,9.69,8.5,null,11.3,12.9,30
+Armenia,ARM,Europe & Central Asia,Lower middle income,1.64,13.51,4.5,54.9,3.8,14.7,32
+Aruba,ABW,Latin America & Caribbean,High income: nonOECD,1.84,11.37,null,null,null,null,null
+Australia,AUS,East Asia & Pacific,High income: OECD,1.77,4.37,9.1,null,3.6,3.9,null
+Austria,AUT,Europe & Central Asia,High income: OECD,1.46,3.45,11.5,null,2.6,3.7,4.2
+Azerbaijan,AZE,Europe & Central Asia,Upper middle income,1.91,25.68,5.4,null,10.6,32.9,6
+"Bahamas, The",BHS,Latin America & Caribbean,High income: nonOECD,1.96,11.92,7.5,null,20.3,12.4,9.3
+Bahrain,BHR,Middle East & North Africa,High income: nonOECD,1.78,9.35,3.9,null,10.5,6.5,null
+Bangladesh,BGD,South Asia,Lower middle income,2.4,44.09,3.6,62,31.8,39.5,31.5
+Barbados,BRB,Latin America & Caribbean,High income: nonOECD,1.68,10.42,6.3,null,10.9,13.3,null
+Belarus,BLR,Europe & Central Asia,Upper middle income,1.47,3.62,5,63.1,2.4,4.7,6.3
+Belgium,BEL,Europe & Central Asia,High income: OECD,1.78,3.41,10.8,70.4,7,4.2,15.1
+Belize,BLZ,Latin America & Caribbean,Upper middle income,2.95,19.82,5.8,55.2,19.2,17,41
+Benin,BEN,Sub-Saharan Africa,Low income,4.95,55.68,4.5,12.9,55.2,102.1,37.4
+Bermuda,BMU,North America,High income: nonOECD,1.95,2.48,null,null,null,null,11
+Bhutan,BTN,South Asia,Lower middle income,1.97,35.91,3.8,65.6,24.2,34.4,12
+Bolivia,BOL,Latin America & Caribbean,Lower middle income,2.73,37.49,5.8,null,28.1,39.8,45
+Bosnia and Herzegovina,BIH,Europe & Central Asia,Upper middle income,1.27,5.72,9.9,45.8,2.6,5.7,17.2
+Botswana,BWA,Sub-Saharan Africa,Upper middle income,2.33,8.93,5.3,null,54,44.8,30.3
+Brazil,BRA,Latin America & Caribbean,Upper middle income,1.77,18.6,9.3,null,13.5,16.2,21.4
+Brunei,BRN,East Asia & Pacific,High income: nonOECD,1.8,10.16,2.3,null,9.5,10.1,null
+Bulgaria,BGR,Europe & Central Asia,Upper middle income,1.45,8.66,7.4,null,3,10.9,21
+Burkina_Faso,BFA,Sub-Saharan Africa,Low income,5.86,75.32,6.2,16.2,58.4,92.4,46.7
+Burundi,BDI,Sub-Saharan Africa,Low income,6.09,61.89,8.1,21.9,60.3,84.6,68
+Cabo Verde,CPV,Sub-Saharan Africa,Lower middle income,2.29,23.45,3.9,null,22.5,25.2,30
+Cambodia,KHM,East Asia & Pacific,Low income,2.6,50.04,5.4,50.5,37.4,30.6,17.7
+Cameroon,CMR,Sub-Saharan Africa,Lower middle income,4.76,53.63,5.1,23.4,60.5,90.6,48
+Canada,CAN,North America,High income: OECD,1.59,4.65,10.9,null,5.4,5,9.4
+Cayman Islands,CYM,Latin America & Caribbean,High income: nonOECD,1.86,6.08,null,null,null,null,null
+Central_African_Republic,CAF,Sub-Saharan Africa,Low income,4.41,90.63,3.8,15.2,73,134,62
+Chad,TCD,Sub-Saharan Africa,Low income,4.55,88.69,3.5,4.8,72.1,142.9,46.7
+Channel Islands,CHI,Europe & Central Asia,High income: nonOECD,1.459,null,null,null,null,null,
+Chile,CHL,Latin America & Caribbean,High income: OECD,1.82,6.86,7.2,null,8,8.3,15.1
+China,CHN,East Asia & Pacific,Upper middle income,1.6,12.44,5.4,87.9,5.3,11.4,6.1
+Colombia,COL,Latin America & Caribbean,Upper middle income,2.04,14.58,6.8,79.1,12.6,16.4,32.7
+Comoros,COM,Sub-Saharan Africa,Low income,3.6,63.55,4.5,19.4,51.1,75.9,60
+"Congo, Democratic Republic of the",COD,Sub-Saharan Africa,Low income,4.66,71.47,5.6,20.4,66.9,101.7,63
+"Congo, Republic of the",COG,Sub-Saharan Africa,Lower middle income,4.68,57.92,3.2,44.7,61.9,47.1,46.5
+Costa Rica,CRI,Latin America & Caribbean,Upper middle income,1.9,8.46,10.1,76.2,6.5,9.9,24.8
+Cote d'Ivoire,CIV,Sub-Saharan Africa,Lower middle income,3.54,58.7,7.1,18.2,60.7,95.5,42
+Croatia,HRV,Europe & Central Asia,High income: nonOECD,1.46,5.77,6.8,null,1.4,4.5,19.5
+Cuba,CUB,Latin America & Caribbean,Upper middle income,1.47,4.63,8.6,74.3,6.3,5.6,null
+Curacao,CUW,Latin America & Caribbean,High income: nonOECD,2.09,null,null,null,null,null,null
+Cyprus,CYP,Europe & Central Asia,High income: nonOECD,1.46,8.36,7.3,null,4.2,2.9,null
+Czech Republic,CZE,Europe & Central Asia,High income: OECD,1.44,2.63,7.7,null,4.7,3.5,8.6
+Denmark,DNK,Europe & Central Asia,High income: OECD,1.73,4.05,11.2,null,6.7,3.6,13.4
+Djibouti,DJI,Middle East & North Africa,Lower middle income,2.39,48.7,8.8,19,54.8,67.4,18.8
+Dominica,DMA,Latin America & Caribbean,Upper middle income,2.04,11.25,5.9,null,null,21.2,29
+Dominican Republic,DOM,Latin America & Caribbean,Upper middle income,2.33,18.84,5.4,71.9,16.5,31.5,41.1
+Ecuador,ECU,Latin America & Caribbean,Upper middle income,2.25,17.38,6.4,null,17.8,22.3,25.6
+Egypt,EGY,Middle East & North Africa,Lower middle income,2.83,21.55,5,null,10.7,24.8,25.2
+El Salvador,SLV,Latin America & Caribbean,Lower middle income,1.91,17.86,6.7,null,14,17.4,36.5
+Equatorial Guinea,GNQ,Sub-Saharan Africa,High income: nonOECD,4.57,69.17,4.7,12.6,58.7,97.4,null
+Eritrea,ERI,Sub-Saharan Africa,Low income,4.02,37.53,2.6,8.4,51.8,48.1,50
+Estonia,EST,Europe & Central Asia,High income: OECD,1.59,3.85,5.9,null,2.3,3.2,22.1
+Ethiopia,ETH,Sub-Saharan Africa,Low income,5.15,53.37,3.8,28.6,59.5,61.8,39
+Faroe Islands,FRO,Europe & Central Asia,High income: nonOECD,2.37,5.6,null,null,null,null,null
+Fiji,FJI,East Asia & Pacific,Upper middle income,2.47,9.94,4,44.3,12.3,22.9,31
+Finland,FIN,Europe & Central Asia,High income: OECD,1.75,2.52,9.1,null,1.8,2.4,null
+France,FRA,Europe & Central Asia,High income: OECD,2.08,3.28,11.7,null,6.1,4.4,8.1
+French Polynesia,PYF,East Asia & Pacific,High income: nonOECD,1.92,4.73,null,null,null,null,19.7
+Gabon,GAB,Sub-Saharan Africa,Upper middle income,4.46,46.07,3.5,31.1,56,52.3,32.7
+"Gambia, The",GMB,Sub-Saharan Africa,Low income,3.73,63.9,5,13.3,59.1,71.1,48.4
+Gaza Strip,PSE,Middle East & North Africa,Lower middle income,4.08,14.94,null,52.5,null,null,39
+Georgia,GEO,Europe & Central Asia,Lower middle income,1.76,16.15,9.2,53.4,3.3,12.6,9.2
+Germany,DEU,Europe & Central Asia,High income: OECD,1.44,3.43,11.3,null,4.9,3.8,15.5
+Ghana,GHA,Sub-Saharan Africa,Lower middle income,4.06,37.37,5.2,34.3,50.7,64,24.2
+Greece,GRC,Europe & Central Asia,High income: OECD,1.42,4.7,9.3,null,5.6,4.6,44
+Greenland,GRL,Europe & Central Asia,High income: nonOECD,2.03,9.23,null,null,null,null,9.2
+Grenada,GRD,Latin America & Caribbean,Upper middle income,2.06,10.21,6.4,null,null,12.2,38
+Guam,GUM,East Asia & Pacific,High income: nonOECD,2.34,5.41,null,null,null,null,23
+Guatemala,GTM,Latin America & Caribbean,Lower middle income,2.9,22.73,6.7,null,34.4,30.1,54
+Guinea,GIN,Sub-Saharan Africa,Low income,4.88,53.43,6.3,5.6,61,97,47
+Guinea-Bissau,GNB,Sub-Saharan Africa,Low income,4.23,89.21,5.9,14.2,64.1,96.2,69.3
+Guyana,GUY,Latin America & Caribbean,Lower middle income,2.08,32.56,6.6,null,17.6,40.2,35
+Haiti,HTI,Latin America & Caribbean,Low income,2.69,47.98,6.4,34.5,42.5,71,58.5
+Honduras,HND,Latin America & Caribbean,Lower middle income,2.78,18.18,8.6,73.2,23.4,21.1,60
+Hong Kong,HKG,East Asia & Pacific,High income: nonOECD,1.18,2.73,null,null,null,null,19.6
+Hungary,HUN,Europe & Central Asia,High income: OECD,1.43,5.02,7.8,null,1.8,6.1,14
+Iceland,ISL,Europe & Central Asia,High income: OECD,2.02,2.06,9.1,null,4.1,2.1,null
+India,IND,South Asia,Lower middle income,2.48,41.81,4,null,27.9,49.8,29.8
+Indonesia,IDN,East Asia & Pacific,Lower middle income,2.15,24.29,3,61.9,22,28.2,11.3
+Iran,IRN,Middle East & North Africa,Upper middle income,1.83,38.04,6.7,77.42,9.7,16.1,18.7
+Iraq,IRQ,Middle East & North Africa,Upper middle income,4.12,37.49,3.6,52.5,19.1,32.9,25
+Ireland,IRL,Europe & Central Asia,High income: OECD,1.99,3.7,8.1,null,5.7,3.7,5.5
+Isle of Man,IMN,Europe & Central Asia,High income: nonOECD,1.94,4.11,null,null,null,null,null
+Israel,ISR,Middle East & North Africa,High income: OECD,2.68,3.55,7.5,null,9,4.1,21
+Italy,ITA,Europe & Central Asia,High income: OECD,1.43,3.29,9.2,null,3.8,3.6,29.9
+Jamaica,JAM,Latin America & Caribbean,Upper middle income,2.01,13.37,5.9,null,13.8,16.2,16.5
+Japan,JPN,East Asia & Pacific,High income: OECD,1.4,2.08,10.1,null,13.2,2.8,16.1
+Jordan,JOR,Middle East & North Africa,Upper middle income,3.17,15.18,9.8,61.2,13.2,18.5,14.2
+Kazakhstan,KAZ,Europe & Central Asia,Upper middle income,2.31,20.92,4.2,51,5.9,15.1,5.3
+Kenya,KEN,Sub-Saharan Africa,Lower middle income,3.31,39.38,4.7,null,63.8,51.3,43.4
+Kiribati,KIR,East Asia & Pacific,Lower middle income,2.48,34.26,10.7,null,null,57.4,null
+"Korea, North",PRK,East Asia & Pacific,Low income,1.97,23.68,null,70.6,11,26.1,null
+"Korea, South",KOR,East Asia & Pacific,High income: OECD,1.25,3.86,7.5,null,8.3,3.6,14.6
+Kosovo,KSV,Europe & Central Asia,Lower middle income,2.16,null,null,null,null,null,30
+Kuwait,KWT,Middle East & North Africa,High income: nonOECD,2.48,7.31,2.5,null,16,9,null
+Kyrgyzstan,KGZ,Europe & Central Asia,Lower middle income,2.66,27.73,7.1,36.3,10.9,22.6,33.7
+Laos,LAO,East Asia & Pacific,Lower middle income,2.82,52.97,2.9,49.8,42.7,69.1,22
+Latvia,LVA,Europe & Central Asia,High income: nonOECD,1.5,5.36,6,null,2.2,8.2,19.4
+Lebanon,LBN,Middle East & North Africa,Upper middle income,1.73,7.76,7.3,null,6.1,8.6,28.6
+Lesotho,LSO,Sub-Saharan Africa,Lower middle income,2.72,49.03,11.6,null,64.1,92,49
+Liberia,LBR,Sub-Saharan Africa,Low income,4.7,67.5,15.5,20.2,58.2,72.9,63.8
+Libya,LBY,Middle East & North Africa,Upper middle income,2.05,11.48,3.9,null,9.8,13.9,null
+Liechtenstein,LIE,Europe & Central Asia,High income: nonOECD,1.69,4.29,null,null,null,null,null
+Lithuania,LTU,Europe & Central Asia,High income: nonOECD,1.59,3.84,6.7,null,2.9,5.2,4
+Luxembourg,LUX,Europe & Central Asia,High income: OECD,1.61,3.46,6.9,null,5.8,2,null
+Macau,MAC,East Asia & Pacific,High income: nonOECD,0.94,3.12,null,null,null,null,null
+Macedonia,MKD,Europe & Central Asia,Upper middle income,1.6,7.7,7.1,40.2,1.6,6,30.4
+Madagascar,MDG,Sub-Saharan Africa,Low income,4.2,43.67,4.1,39.8,50.5,51.5,50
+Malawi,MWI,Sub-Saharan Africa,Low income,5.6,46.26,9.2,46.1,65.1,66.9,53
+Malaysia,MYS,East Asia & Pacific,Upper middle income,2.55,13.27,4,null,16.3,7.2,3.8
+Maldives,MDV,South Asia,Upper middle income,1.74,23.7,8.5,null,11.8,9.2,16
+Mali,MLI,Sub-Saharan Africa,Low income,6.06,102.23,5.8,9.8,60.3,118.3,36.1
+Malta,MLT,Middle East & North Africa,High income: nonOECD,1.54,3.56,9.1,null,4.9,6.5,15.7
+Marshall Islands,MHL,East Asia & Pacific,Upper middle income,3.15,20.66,15.6,null,null,37,null
+Mauritania,MRT,Sub-Saharan Africa,Lower middle income,4,54.68,6.4,11.4,60.3,87.5,40
+Mauritius,MUS,Sub-Saharan Africa,Upper middle income,1.76,10.3,4.8,null,8.2,13.9,8
+Mexico,MEX,Latin America & Caribbean,Upper middle income,2.27,12.23,6.1,null,10.5,13.8,52.3
+"Micronesia, Federated States of",FSM,East Asia & Pacific,Lower middle income,2.49,21.18,12.8,null,null,35.8,26.7
+Moldova,MDA,Europe & Central Asia,Lower middle income,1.56,12.59,11.7,59.5,3.8,16.1,21.9
+Monaco,MCO,Europe & Central Asia,High income: nonOECD,1.52,1.82,4.4,null,null,3.6,null
+Mongolia,MNG,East Asia & Pacific,Upper middle income,2.17,22.44,6.3,54.9,11.4,23.5,29.8
+Montenegro,MNE,Europe & Central Asia,Upper middle income,1.666,4.3,7.6,null,2.2,5,8.6
+Morocco,MAR,Middle East & North Africa,Lower middle income,2.13,23.6,6.4,67.4,17.8,28.6,15
+Mozambique,MOZ,Sub-Saharan Africa,Low income,5.21,70.21,6.4,11.6,66.1,81.2,52
+Myanmar,MMR,East Asia & Pacific,Lower middle income,5.18,39.5,null,46,30.4,51.7,null
+Namibia,NAM,Sub-Saharan Africa,Upper middle income,2.17,45.62,8.3,null,46.8,46.4,28.7
+Nepal,NPL,South Asia,Low income,2.24,39.14,5.5,null,29.8,37.4,25.2
+Netherlands,NLD,Europe & Central Asia,High income: OECD,1.78,3.62,12.4,null,6.4,3.9,9.1
+New Caledonia,NCL,East Asia & Pacific,High income: nonOECD,1.97,5.37,null,null,null,null,null
+New Zealand,NZL,East Asia & Pacific,High income: OECD,2.04,4.52,10.3,null,4.8,5.8,null
+Nicaragua,NIC,Latin America & Caribbean,Lower middle income,1.94,19.65,8.2,80.4,15,22.8,42.5
+Niger,NER,Sub-Saharan Africa,Low income,6.76,84.59,7.2,13.9,67.6,99.6,63
+Nigeria,NGA,Sub-Saharan Africa,Lower middle income,5.19,72.7,6.1,15.1,65.6,112.5,70
+Northern Mariana Islands,MNP,East Asia & Pacific,High income: nonOECD,1.98,5.4,null,null,null,null,null
+Norway,NOR,Europe & Central Asia,High income: OECD,1.86,2.48,9,null,7.6,2.7,null
+Oman,OMN,Middle East & North Africa,High income: nonOECD,2.86,13.55,2.6,null,17.1,11.6,null
+Pakistan,PAK,South Asia,Lower middle income,2.75,55.67,2.7,35.4,38.3,83.3,12.4
+Palau,PLW,East Asia & Pacific,Upper middle income,1.71,11.15,9.5,22.26,null,17,null
+Panama,PAN,Latin America & Caribbean,Upper middle income,2.35,10.41,7.6,null,17.2,17.6,26
+Papua New Guinea,PNG,East Asia & Pacific,Lower middle income,3.16,38.55,5.2,null,48.2,59.1,37
+Paraguay,PRY,Latin America & Caribbean,Upper middle income,1.91,20.05,10.3,null,15.1,21.2,34.7
+Peru,PER,Latin America & Caribbean,Upper middle income,2.18,19.59,5.1,74,23.7,17.5,25.8
+Philippines,PHL,East Asia & Pacific,Lower middle income,3.09,22.34,4.6,55.1,25,28.8,25.2
+Poland,POL,Europe & Central Asia,High income: OECD,1.33,4.5,6.7,null,3.4,5.2,10.6
+Portugal,PRT,Europe & Central Asia,High income: OECD,1.52,4.43,9.4,null,9.8,3.7,18.7
+Puerto Rico,PRI,Latin America & Caribbean,High income: nonOECD,1.64,7.57,null,null,null,null,null
+Qatar,QAT,Middle East & North Africa,High income: nonOECD,1.91,6.32,2.2,null,7.6,8.2,null
+Romania,ROU,Europe & Central Asia,Upper middle income,1.33,9.89,5.1,null,3.7,11.5,22.6
+Russia,RUS,Europe & Central Asia,High income: nonOECD,1.61,6.97,6.3,68,6,9.9,11
+Rwanda,RWA,Sub-Saharan Africa,Low income,4.53,58.19,10.7,51.6,51.6,44.3,44.9
+Saint Kitts and Nevis,KNA,Latin America & Caribbean,High income: nonOECD,1.78,8.77,5.9,null,null,10.9,null
+Saint Lucia,LCA,Latin America & Caribbean,Upper middle income,1.76,11.45,8.5,55.5,null,14.7,null
+Saint Vincent and the Grenadines,VCT,Latin America & Caribbean,Upper middle income,1.82,12.69,5.2,null,null,18.8,null
+Samoa,WSM,East Asia & Pacific,Lower middle income,2.84,19.57,0,null,null,17.9,null
+San Marino,SMR,Europe & Central Asia,High income: nonOECD,1.49,4.45,6.5,null,null,null,null
+Sao_Tome_and_Principe,STP,Sub-Saharan Africa,Lower middle income,4.54,47.88,7.9,null,null,49,66.2
+Saudi Arabia,SAU,Middle East & North Africa,High income: nonOECD,2.12,14.09,3.2,null,12.6,15,null
+Senegal,SEN,Sub-Saharan Africa,Lower middle income,4.44,51.54,5,17.8,57.2,49.7,46.7
+Serbia,SRB,Europe & Central Asia,Upper middle income,1.43,6.05,10.5,60.8,2,6.8,9.2
+Seychelles,SYC,Sub-Saharan Africa,High income: nonOECD,1.87,10.49,4.7,null,null,13.8,37.8
+Sierra_Leone,SLE,Sub-Saharan Africa,Low income,4.8,71.68,15.1,16.6,66.3,126.4,70.2
+Singapore,SGP,East Asia & Pacific,High income: nonOECD,0.81,2.48,4.7,null,19,2.8,null
+Sint Maarten (Dutch part),SXM,Latin America & Caribbean,High income: nonOECD,2.03,9.05,null,null,null,null,null
+Slovakia,SVK,Europe & Central Asia,High income: OECD,1.39,5.27,7.8,null,5.2,7.5,20.5
+Slovenia,SVN,Europe & Central Asia,High income: OECD,1.34,4,8.8,null,3.5,2.7,13.5
+Solomon Islands,SLB,East Asia & Pacific,Lower middle income,3.28,15.65,8,null,29.8,28.9,22.7
+Somalia,SOM,Sub-Saharan Africa,Low income,5.99,98.39,null,null,69,141.2,null
+South Africa,ZAF,Sub-Saharan Africa,Upper middle income,2.33,32.99,8.8,null,48.5,41.4,35.9
+South Sudan,SSD,Sub-Saharan Africa,Low income,5.31,66.39,2.6,4,63.4,95.6,50.6
+Spain,ESP,Europe & Central Asia,High income: OECD,1.49,3.3,9.6,null,4.7,4.2,21.1
+Sri Lanka,LKA,South Asia,Lower middle income,2.1,8.8,3.3,null,11.1,10,8.9
+Sudan,SDN,Sub-Saharan Africa,Lower middle income,3.79,51.52,7.2,9,52.8,72.2,46.5
+Suriname,SUR,Latin America & Caribbean,Upper middle income,1.97,26.17,5.9,47.6,16.7,21.9,70
+Swaziland,SWZ,Sub-Saharan Africa,Lower middle income,2.8,52.57,8.5,65.2,63.1,62.6,69
+Sweden,SWE,Europe & Central Asia,High income: OECD,1.88,2.6,9.6,null,5.2,3,14
+Switzerland,CHE,Europe & Central Asia,High income: OECD,1.55,3.67,11.3,null,3.7,4,7.6
+Syria,SYR,Middle East & North Africa,Lower middle income,2.6,15.61,3.4,null,6.2,14.3,11.9
+Taiwan,TWN,null,null,1.12,4.44,null,null,null,null,1.5
+Tajikistan,TJK,Europe & Central Asia,Lower middle income,2.71,33.93,5.8,27.9,29.9,46.3,35.6
+Tanzania,TZA,Sub-Saharan Africa,Low income,4.89,42.43,7,34.4,57.9,50.5,67.9
+Thailand,THA,East Asia & Pacific,Upper middle income,1.51,9.63,3.9,79.3,18.4,12.6,12.6
+Timor-Leste,TLS,East Asia & Pacific,Lower middle income,5.01,37.54,4.3,22.3,47,54.5,37
+Togo,TGO,Sub-Saharan Africa,Low income,4.48,45.22,8.6,15.2,61.9,80.8,32
+Tonga,TON,East Asia & Pacific,Upper middle income,3.26,11.96,5.4,34.1,null,17.1,24
+Trinidad and Tobago,TTO,Latin America & Caribbean,High income: nonOECD,1.71,23.9,5.4,null,8.6,20.9,17
+Tunisia,TUN,Middle East & North Africa,Upper middle income,1.99,22.35,7,62.5,10.8,14.6,3.8
+Turkey,TUR,Europe & Central Asia,Upper middle income,2.05,18.87,6.3,null,7.2,14.3,16.9
+Turkmenistan,TKM,Europe & Central Asia,Upper middle income,2.09,36.82,2,null,13.3,53.1,0.2
+Turks and Caicos Islands,TCA,Latin America & Caribbean,High income: nonOECD,1.7,10.65,null,null,null,null,null
+Tuvalu,TUV,East Asia & Pacific,Upper middle income,3,30.8,15.4,null,null,null,26.3
+Uganda,UGA,Sub-Saharan Africa,Low income,5.89,59.21,8,30,60,56.9,19.7
+Ukraine,UKR,Europe & Central Asia,Lower middle income,1.53,8.12,7.6,65.4,5.1,9.5,24.1
+United Arab Emirates,ARE,Middle East & North Africa,High income: nonOECD,2.35,10.59,2.8,null,11.5,7.1,19.5
+United Kingdom,GBR,Europe & Central Asia,High income: OECD,1.89,4.38,9.4,null,7.2,4.4,15
+United States,USA,North America,High income: OECD,1.87,5.87,17.9,76.4,5.7,6.7,15.1
+Uruguay,URY,Latin America & Caribbean,High income: nonOECD,1.82,8.74,8.9,null,7.7,10.6,18.6
+Uzbekistan,UZB,Europe & Central Asia,Lower middle income,1.79,19.2,5.9,null,13.7,40.4,17
+Vanuatu,VUT,East Asia & Pacific,Lower middle income,3.25,15.7,3.6,49,null,28.1,null
+Venezuela,VEN,Latin America & Caribbean,High income: nonOECD,2.32,18.91,4.6,null,11.1,15.3,31.6
+Vietnam,VNM,East Asia & Pacific,Lower middle income,1.83,18.39,6.6,77.8,16.6,22.3,11.3
+Virgin Islands,VIR,Latin America & Caribbean,High income: nonOECD,1.74,6.64,null,null,null,null,28.9
+West Bank,PSE,Middle East & North Africa,Lower middle income,2.76,13.08,null,52.5,null,null,18
+Yemen,YEM,Middle East & North Africa,Lower middle income,3.91,48.93,5.5,null,50.1,43.8,54
+Zambia,ZMB,Sub-Saharan Africa,Lower middle income,5.72,64.72,6.5,null,66.7,66.6,60.5
+Zimbabwe,ZWE,Sub-Saharan Africa,Low income,3.53,26.11,null,58.5,61.5,72.3,72.3
