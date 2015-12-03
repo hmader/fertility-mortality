@@ -12,6 +12,11 @@ svg {
     margin-left: 20px;
 }
 
+#vis-wrap {
+ height: 70vh;
+    margin-bottom: 50px;
+}
+
 svg rect:hover {
     opacity: .3;
 }
@@ -38,6 +43,10 @@ svg {
     fill: none;
     stroke: #D3D3D3;
     stroke-width: 1px;
+}
+
+.label {
+    font-weight: 400;
 }
 
 .line {
@@ -73,11 +82,6 @@ svg {
     font-size: 11px;
 }
 
-.header {
-    width: 70%;
-    margin-left: 16px;
-}
-
 h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 1.75em;
@@ -107,6 +111,30 @@ p {
     font-style: italic;
     color: rgb(0, 0, 0);
     font-style: italic;
+}
+
+#intro {
+    text-align: center;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: flex-start;
+    -webkit-align-items: center;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    height: 70vh;
+    padding: 50px;
+}
+
+.header {
+    margin-left: 16px;
+}
+
+#intro .header {
+ margin: 0;   
 }
 
 a {
@@ -158,5 +186,5 @@ a:hover {
 }
 
 .hide {
-display: none;
+    display: none;
 }

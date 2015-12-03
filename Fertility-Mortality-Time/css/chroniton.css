@@ -1,4 +1,4 @@
-    .legendLinear text {
+    .chroniton .legendLinear text {
         font-size: 9px;
     }
     
@@ -14,7 +14,7 @@
         shape-rendering: crispEdges;
     }
     
-    .x.axis,
+    .chroniton .x.axis,
     .slider text {
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -63,6 +63,6 @@
         fill: #eee;
     }
     
-    .label {
+    .chroniton .label {
         font: bold 12px sans-serif;
     }
