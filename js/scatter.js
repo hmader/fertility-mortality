@@ -10,7 +10,7 @@ function drawScatter(variable) {
         half_width = width,
         half_height = 3 * height / 5;
 
-    var dotRadius = 3;
+    var dotRadius = 4;
 
     var xScale = d3.scale.linear()
         .range([half_margin.left, half_width - half_margin.left - half_margin.right]); //--- range is what we are mapping TO, so we want it to be the chart area
@@ -33,9 +33,16 @@ function drawScatter(variable) {
         .attr('width', half_width)
         .attr('height', half_height);
 
-/*--------------------------------------------------------------------------
-        drawAxes()
-     --------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------
+           Color Scale
+    --------------------------------------------------------------------------*/
+    var colorScale = d3.scale.linear().range(["#0099FF", "#FF0000"]).interpolate(d3.interpolateLab);
+
+    colorScale.domain([0, 400]);
+
+    /*--------------------------------------------------------------------------
+            drawAxes()
+         --------------------------------------------------------------------------*/
     function drawAxes() {
         xScale.domain([0, d3.max(mixedDataset, function (d) {
             return +d.U5MR2014;
@@ -69,46 +76,70 @@ function drawScatter(variable) {
             .attr("dy", "1em")
             .style("text-anchor", "end")
             .attr("class", "label")
-            .text(measure.replace('_',' '));
+            .text(measure.replace('_', ' '));
 
     }
-/*--------------------------------------------------------------------------
-        drawCircles()
+    /*--------------------------------------------------------------------------
+            drawCircles()
+         --------------------------------------------------------------------------*/
+    function drawCircles() {
+        var circles = svg.selectAll("circle")
+            .data(mixedDataset)
+            .enter()
+            .append("circle");
+
+        circles.attr("class", "dots");
+        // class to the circles - ".dots".
+
+        circles.attr("cx", function (d) {
+                if (!isNaN(d.U5MR2014) && !isNaN(d[measure])) {
+                    return xScale(+d.U5MR2014);
+                }
+            })
+            .attr("cy", function (d) {
+                if (!isNaN(d.U5MR2014) && !isNaN(d[measure])) {
+                    return yScale(+d[measure]);
+                }
+            })
+            .attr("r", dotRadius) // you might want to increase your dotRadius
+            .attr("fill", function (d) {
+                if (!isNaN(d.U5MR2014) && !isNaN(d[measure])) {
+                    return colorScale(d.U5MR2014);
+                } else {
+                    return "#fff";
+                }
+            })
+            .attr("opacity", ".6");
+        
+        circles.on("mouseover", mouseoverFunc)
+            .on("mouseout", mouseoutFunc)
+            .on("mousemove", mousemoveFunc);
+    }
+
+    /*--------------------------------------------------------------------------
+      Mouse Events
      --------------------------------------------------------------------------*/
-   function drawCircles() {
-    var circles = svg.selectAll("circle")
-        .data(mixedDataset)
-        .enter()
-        .append("circle");
 
-    circles.attr("class", "dots");
-    // class to the circles - ".dots".
-
-    circles.attr("cx", function (d) {
-            if (!isNaN(d.U5MR2014)) {
-                return xScale(+d.U5MR2014);
-            }
-        })
-        .attr("cy", function (d) {
-            if (!isNaN(d.U5MR2014)) {
-                return yScale(+d[measure]);
-            }
-        })
-        .attr("r", dotRadius) // you might want to increase your dotRadius
-        .attr("fill", function (d) {
-            if (!isNaN(d.U5MR2014) && !isNaN(d[measure])) {
-                return "#0099FF";
-            } else {
-                return "#fff";
-            }
-        })
-        .attr("opacity", ".6")
-        .append("title")
-        .text(function (d) {
-            return d.Country + " " + measure.replace('_',' ') + " " + d3.format(".2f")(d[measure]) + ", Under-5 Mortality Rate: " + d.U5MR2014;
-        });
+    function mouseoverFunc(d) {
+        var toolstring = "U5MR: " + d.U5MR2014 + "<br>" + measure.replace('_', ' ') + " " + d[measure];
+        myTooltip
+            .style("opacity", 1)
+            .style("display", null)
+            .html("<p><span class='tooltipHeader'>" + d.Country + "</span><br>" + toolstring + "<br></p>");
     }
 
+    function mousemoveFunc(d) {
+        return myTooltip
+            .style("top", (d3.event.pageY - 5) + "px")
+            .style("left", (d3.event.pageX + 15) + "px");
+    }
+
+    function mouseoutFunc(d) {
+        return myTooltip.style("display", "none"); // this sets it to invisible!
+    }
+    /*--------------------------------------------------------------------------
+          call the functions
+    --------------------------------------------------------------------------*/
     drawAxes();
     drawCircles();
 

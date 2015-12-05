@@ -1,14 +1,22 @@
 function drawMultiples() {
     var m_margin = {
             top: 10,
-            right: 0,
+            right: 20,
             bottom: 30,
             left: 20
         },
-        m_width = 200 - m_margin.left - m_margin.right,
+        m_width = 250 - m_margin.left - m_margin.right,
         m_height = 150 - m_margin.top - m_margin.bottom;
 
     var dotRadius = 1;
+    /*--------------------------------------------------------------------------
+           Color Scale
+    --------------------------------------------------------------------------*/
+    var colorScale = d3.scale.linear().range(["#0099FF", "#FF0000"]).interpolate(d3.interpolateLab);
+
+    colorScale.domain([0, 400]);
+
+
     /*--------------------------------------------------------------------------
         Scale Variables & Setup
       --------------------------------------------------------------------------*/
@@ -37,6 +45,7 @@ function drawMultiples() {
         .ticks(4)
         .orient("left");
 
+    
     /*--------------------------------------------------------------------------
       Nesting
      --------------------------------------------------------------------------*/
@@ -70,16 +79,32 @@ function drawMultiples() {
         .attr('width', width)
         .attr('height', height);
 
-    svg.selectAll("svg.multiple")
+    var multiples = svg.selectAll("svg.multiple")
         .data(newNest)
         .enter().append("svg")
         .attr("width", m_width)
         .attr("height", m_height)
         .attr("class", "multiple")
         .append("g")
+        .attr("class", function (d) {
+            console.log("CLASS", d.method);
+            return d.method;
+        })
         .attr("transform", "translate(" + m_margin.left + "," + m_margin.top + ")")
         .each(multiple); // uses each to call the multiple code for each measure
 
+    multiples.on("click", clickMultiple);
+    
+    /*--------------------------------------------------------------------------
+      clickMultiple()
+     --------------------------------------------------------------------------*/
+    function clickMultiple(d) {
+        console.log("CLICKED", $(this));
+        console.log("CLICKED", $(this).attr("class"));
+        var vis = d3.select("#vis");
+        console.log("VIS", vis);
+        console.log(vis.select("svg"));
+    }
 
     /*--------------------------------------------------------------------------
        Multiple()
@@ -88,6 +113,14 @@ function drawMultiples() {
         console.log("NEST", thisMeasure);
         //        console.log("MIXEDDATA", mixedDataset);
         var svg = d3.select(this);
+
+        svg.append("rect")
+            .attr("class", "background")
+            .style("pointer-events", "all")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("opacity", '0');
+
 
         //
         var yMax = d3.max(mixedDataset, function (d) {
@@ -107,19 +140,19 @@ function drawMultiples() {
             .append("circle");
 
         circles.attr("cx", function (d) {
-                if (!isNaN(d.U5MR)) {
+                if (!isNaN(d.U5MR) && !isNaN(d.U5MR)) {
                     return xScale(+d.U5MR);
                 }
             })
             .attr("cy", function (d) {
-                if (!isNaN(d.value)) {
+                if (!isNaN(d.value) && !isNaN(d.U5MR)) {
                     return yScale(+d.value);
                 }
             })
             .attr("r", dotRadius) // you might want to increase your dotRadius
             .attr("fill", function (d) {
                 if (!isNaN(d.value) && !isNaN(d.U5MR)) {
-                    return "#0099FF";
+                    return colorScale(d.U5MR);
                 } else {
                     return "#fff";
                 }
@@ -159,7 +192,7 @@ function drawMultiples() {
             .attr("dy", "1em")
             .style("text-anchor", "start")
             .attr("class", "label")
-            .text(thisMeasure.method.replace('_',' '));
+            .text(""/*thisMeasure.method.replace('_', ' ')*/);
 
         /* End Multiple() */
     }

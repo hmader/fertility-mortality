@@ -33,7 +33,7 @@ function drawFMOverTime() {
 
     xScale.domain([0, xMax]);
     yScale.domain([yMax, 0]);
-    
+
     svg = d3.select('#vis').append('svg')
         .attr('width', width)
         .attr('height', height);
@@ -260,9 +260,9 @@ function drawFMOverTime() {
 
         circles.on("mouseover", mouseoverFunc)
             .on("mouseout", mouseoutFunc)
-            .on("mousemove", mousemoveFunc)
+            .on("mousemove", mousemoveFunc);
     }
-    
+
     /*--------------------------------------------------------------------------
        redraw()
       --------------------------------------------------------------------------*/
@@ -339,9 +339,89 @@ function drawFMOverTime() {
         return myTooltip.style("display", "none"); // this sets it to invisible!
     }
     /*--------------------------------------------------------------------------
-           Call the functions
+          redraw()
     --------------------------------------------------------------------------*/
 
+//    function redraw(rateSelect) {
+//
+//        console.log("clicked" + rateSelect);
+//        xScale.domain([0, d3.max(data, function (d) {
+//            return +d.TeenBirthRate;
+//        })]);
+//
+//        yScale.domain([0, d3.max(data, function (d) {
+//            return +d[rateSelect];
+//        })]);
+//
+//        var circles = svg.selectAll("circle")
+//            .data(data);
+//
+//        circles.attr("fill", function (d) {
+//            if (d.abstinence == "stress") {
+//                return "#FF0000";
+//            } else if (d.abstinence == "cover") {
+//                return "#0099FF";
+//            } else {
+//                return "#ccc";
+//            }
+//        });
+//
+//        //        circles.attr("fill", function (d) {
+//        //            if (d.noContraceptiveUse == "null") {
+//        //                return "#ccc";
+//        //            } else if (d.noContraceptiveUse >= 13) {
+//        //                return "#FF0000";
+//        //            } else if (d.noContraceptiveUse < 13) {
+//        //                return "#0099FF";
+//        //            }
+//        //        });
+//
+//        //        circles.attr("fill", function (d) {
+//        //             if (d.contraceptionEduRequired == "FALSE") {
+//        //                return "#FF0000";
+//        //            } else if (d.contraceptionEduRequired == "TRUE") {
+//        //                return "#0099FF";
+//        //            } else {
+//        //                return "#ccc";
+//        //            }
+//        //        });
+//
+//        circles.exit()
+//            .transition()
+//            .duration(500)
+//            .ease("exp")
+//            .attr("r", 0)
+//            //TODO: what goes here at the end of exit?
+//            .remove();
+//
+//        // transition -- move to proper widths and location
+//        circles.transition()
+//            .duration(500)
+//            .ease("quad")
+//            .attr("cx", function (d) {
+//                return xScale(+d.TeenBirthRate);
+//            })
+//            .attr("cy", function (d) {
+//                return yScale(+d[rateSelect]);
+//            })
+//            .attr("r", dotRadius);
+//
+//        // Include axes that transition.
+//        // Update the axes - also animated. this is really easy.
+//        svg.select(".x.axis")
+//            .transition()
+//            .duration(750)
+//            .call(xAxis);
+//
+//        // Update Y Axis
+//        svg.select(".y.axis")
+//            .transition()
+//            .duration(750)
+//            .call(yAxis);
+//    } // end of redraw function
+    /*--------------------------------------------------------------------------
+           Call the functions
+    --------------------------------------------------------------------------*/
     nestData();
     setColorDomain();
     drawAxes();

@@ -10,9 +10,9 @@ function heatMap(countrybyid) {
 //    var colorScale = d3.scale.linear().range(["#ebebfa", "#990000"]).interpolate(d3.interpolateLab);
     var colorScale = d3.scale.linear().range(["#fff2e5", "#cc0000"]).interpolate(d3.interpolateLab);
 
-    var myTooltip = d3.select("body")
-        .append("div")
-        .attr("class", "myTooltip");
+//    var myTooltip = d3.select("body")
+//        .append("div")
+//        .attr("class", "myTooltip");
 
     var world_map_data = mixedDataset;
     var world_map = worldMap;

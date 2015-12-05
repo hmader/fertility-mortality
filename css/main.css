@@ -16,10 +16,6 @@ svg {
     margin-bottom: 200px;
 }
 
-svg rect:hover {
-    opacity: .3;
-}
-
 svg circle:hover {
     opacity: .3;
 }
@@ -124,7 +120,7 @@ p {
     justify-content: flex-start;
     align-items: center;
     
-    height: 70vh;
+    height: 30vh;
     padding: 50px;
 }
 
