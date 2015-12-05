@@ -12,7 +12,6 @@ svg {
 }
 
 #vis-wrap {
- height: 70vh;
     margin-bottom: 200px;
 }
 
@@ -71,6 +70,10 @@ svg {
     stroke-width: 1px;
 }
 
+g.countries path:hover {
+ opacity: .6;   
+}
+
 .axis text,
 .aside {
     font-family: sans-serif;
@@ -122,6 +125,14 @@ p {
     
     height: 30vh;
     padding: 50px;
+}
+
+#slideText {
+            font-family: 'Merriweather', serif;
+            font-size: 16px;
+            line-height: 23px;
+            color: #767678;
+    max-width: 425px;
 }
 
 .header {

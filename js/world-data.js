@@ -158,7 +158,7 @@ function heatMap(countrybyid) {
         //    console.log("THIS after", this);
 
         if (countryById.get(d.id)) {
-            toolstring = "<p><span class='tooltipHeader'>" + countryById.get(d.id)["Country"] + "</span><br>Fertility rate: " + countryById.get(d.id)["FertilityRate"] + "<br>Child mortality: " + countryById.get(d.id)["U5MR2014"] + "</p>";
+            toolstring = "<p><span class='tooltipHeader'>" + countryById.get(d.id)["Country"] + "</span><br>Child mortality: " + countryById.get(d.id)["U5MR2014"] + "</p>";
         } else {
             toolstring = "No Data";
         }

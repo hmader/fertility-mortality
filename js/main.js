@@ -32,6 +32,13 @@ function removeSVG() {
     }
 }
 
+function changeText() {
+    if (slideText[stepCount]) {
+        $("#slideHeader").html(slideText[stepCount].title);
+        $("#slideText").html(slideText[stepCount].text);
+    }
+}
+
 /*======================================================================
  callStep()
 ======================================================================*/
@@ -39,35 +46,41 @@ function callStep() {
     switch (stepCount) {
     case 0:
         console.log("Case ", stepCount);
-        removeSVG();
-
-        heatMap(countryById);
-
-
+        changeText();
         break;
     case 1:
         console.log("Case ", stepCount);
+        changeText();
         removeSVG();
-        
-        drawScatter("Fertility_Rate");
-        drawScatter("Contraceptive_Prevalence");
-        drawMultiples();
+        heatMap(countryById);
         break;
+
     case 2:
         console.log("Case ", stepCount);
+        changeText();
         removeSVG();
-        
-        drawFMOverTime();
 
+        drawScatter("Fertility_Rate");
+        drawScatter("Secondary_Edu_Attendance");
+        drawMultiples();
         break;
     case 3:
         console.log("Case ", stepCount);
+        changeText();
         removeSVG();
+
+        drawFMOverTime();
+
         break;
     case 4:
         console.log("Case ", stepCount);
+        changeText();
+        removeSVG();
         break;
     case 5:
+        console.log("Case ", stepCount);
+        break;
+    case 6:
         console.log("Case ", stepCount);
         break;
     default:
@@ -87,6 +100,7 @@ function loaded(error, world, fertilityData, mortalityData, multipleMapData) {
     mixedDataset = multipleMapData;
     mortalityDataset = mortalityData;
     heatMap(countryById);
+    changeText();
 
 }
 /*======================================================================
