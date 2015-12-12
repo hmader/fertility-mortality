@@ -47,11 +47,15 @@ function callStep() {
     case 0:
         console.log("Case ", stepCount);
         changeText();
+        removeSVG();
+            heatMap(countryById);
         break;
     case 1:
         console.log("Case ", stepCount);
         changeText();
         removeSVG();
+
+        animatedLine();
         heatMap(countryById);
         break;
 
@@ -60,8 +64,6 @@ function callStep() {
         changeText();
         removeSVG();
 
-        drawScatter("Fertility_Rate");
-        drawScatter("Secondary_Edu_Attendance");
         drawMultiples();
         break;
     case 3:
@@ -92,16 +94,16 @@ function callStep() {
 /*======================================================================
  loaded()
 ======================================================================*/
-function loaded(error, world, fertilityData, mortalityData, multipleMapData) {
+function loaded(error, world, fertilityData, mortalityData, multipleMapData, worldLine) {
     console.log("COUNTRY BY ID 1", countryById);
 
     worldMap = world;
     fertilityDataset = fertilityData;
     mixedDataset = multipleMapData;
     mortalityDataset = mortalityData;
+    worldMortalityDataset = worldLine;
     heatMap(countryById);
     changeText();
-
 }
 /*======================================================================
  queue Data
@@ -111,6 +113,7 @@ queue()
     .defer(d3.csv, "data/fertilityOverTime.csv") // process
     .defer(d3.csv, "data/median-U5MRbyCountry.csv")
     .defer(d3.csv, "data/MultipleMapData.csv", typeAndSet)
+    .defer(d3.csv, "data/world-U5MR-overTime.csv")
     .await(loaded);
 
 function typeAndSet(d) {

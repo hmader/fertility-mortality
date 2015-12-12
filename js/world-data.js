@@ -6,13 +6,18 @@ function heatMap(countrybyid) {
     var measure = "U5MR2014";
     var countryById = countrybyid;
 
-//    var colorScale = d3.scale.linear().range(["#2185C5", "#990000"]).interpolate(d3.interpolateLab);
-//    var colorScale = d3.scale.linear().range(["#ebebfa", "#990000"]).interpolate(d3.interpolateLab);
-    var colorScale = d3.scale.linear().range(["#fff2e5", "#cc0000"]).interpolate(d3.interpolateLab);
+    var margin = {
+            top: 10,
+            right: 10,
+            bottom: 30,
+            left: 30
+        },
+        width = 600 - margin.right - margin.left,
+        height = 400 - margin.top - margin.bottom;
 
-//    var myTooltip = d3.select("body")
-//        .append("div")
-//        .attr("class", "myTooltip");
+    //    var colorScale = d3.scale.linear().range(["#fff2e5", "#cc0000"]).interpolate(d3.interpolateLab);
+
+    var colorScale = d3.scale.linear().range(["#99e6ff", "#FF0000"]).interpolate(d3.interpolateLab);
 
     var world_map_data = mixedDataset;
     var world_map = worldMap;
@@ -28,7 +33,7 @@ function heatMap(countrybyid) {
     function getColor(d) {
         //    console.log("getColor d", d);
         var dataRow = countryById.get(d.id);
-//        console.log("dataRow", dataRow);
+        //        console.log("dataRow", dataRow);
         //            console.log("d.id", d.id);
         //    console.log("d", d);
         if (dataRow) {
@@ -84,7 +89,7 @@ function heatMap(countrybyid) {
 
         var projection = d3.geo.mercator()
             .scale(100) // mess with this if you want
-            .translate([width / 2, height / 2]);
+            .translate([width / 2, 2 * height / 3]);
 
         var path = d3.geo.path()
             .projection(projection);
@@ -92,7 +97,7 @@ function heatMap(countrybyid) {
         colorScale.domain([2, 162.2]);
 
         var countries = topojson.feature(world_map, world_map.objects.units).features;
-//        console.log("country by id", countryById);
+        //        console.log("country by id", countryById);
 
         countryShapes = g.append("g")
             .attr("class", "countries")
@@ -116,7 +121,11 @@ function heatMap(countrybyid) {
                     return "NoMatchingCountryID";
                 }
             })
-            .attr('d', path)
+            .attr('d', function (d) {
+                if (d.id !== "ATA") {
+                    return path(d);
+                }
+            })
             .on("mouseover", mouseoverFunc)
             .on("mouseout", mouseoutFunc)
             .on("mousemove", mousemoveFunc)
@@ -158,29 +167,34 @@ function heatMap(countrybyid) {
         //    console.log("THIS after", this);
 
         if (countryById.get(d.id)) {
-            toolstring = "<p><span class='tooltipHeader'>" + countryById.get(d.id)["Country"] + "</span><br>Child mortality: " + countryById.get(d.id)["U5MR2014"] + "</p>";
-        } else {
-            toolstring = "No Data";
+
+            if (!isNaN(countryById.get(d.id)["U5MR2014"])) {
+                    toolstring = "<p><span class='tooltipHeader'>" + countryById.get(d.id)["Country"] + "</span><br>Child mortality: " + countryById.get(d.id)["U5MR2014"] + "</p>";
+                } else {
+                    toolstring = "No Data";
+                }
+            } else {
+                toolstring = "No Data";
+            }
+
+            myTooltip
+                .style("opacity", 1)
+                .style("display", null)
+                .html(toolstring);
+            //    console.log("moused over", toolstring);
         }
 
-        myTooltip
-            .style("opacity", 1)
-            .style("display", null)
-            .html(toolstring);
-        //    console.log("moused over", toolstring);
-    }
+        function mousemoveFunc(d) {
+            myTooltip
+                .style("top", (d3.event.pageY - 5) + "px")
+                .style("left", (d3.event.pageX + 10) + "px");
+        }
 
-    function mousemoveFunc(d) {
-        myTooltip
-            .style("top", (d3.event.pageY - 5) + "px")
-            .style("left", (d3.event.pageX + 10) + "px");
-    }
+        function mouseoutFunc(d) {
+            return myTooltip.style("display", "none"); // this sets it to invisible!
+        }
 
-    function mouseoutFunc(d) {
-        return myTooltip.style("display", "none"); // this sets it to invisible!
+        /*======================================================================
+           ======================================================================*/
+        draw();
     }
-
-    /*======================================================================
-       ======================================================================*/
-    draw();
-}

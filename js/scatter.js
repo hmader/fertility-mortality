@@ -88,7 +88,10 @@ function drawScatter(variable) {
             .enter()
             .append("circle");
 
-        circles.attr("class", "dots");
+        circles.attr("class", function(d) {
+            console.log("DOT CLASS", "dot_" + d.Country.replace(/\s/g, '_'));
+         return "dot_" + d.Country.replace(/\s/g, '_');   
+        });
         // class to the circles - ".dots".
 
         circles.attr("cx", function (d) {
@@ -121,6 +124,10 @@ function drawScatter(variable) {
      --------------------------------------------------------------------------*/
 
     function mouseoverFunc(d) {
+        
+        var dotClass = "circle.dot_" + d.Country.replace(/\s/g, '_');
+        d3.selectAll(dotClass).attr("r", 3*dotRadius/2).classed("red", true);
+        
         var toolstring = "U5MR: " + d.U5MR2014 + "<br>" + measure.replace('_', ' ') + " " + d[measure];
         myTooltip
             .style("opacity", 1)
@@ -135,6 +142,8 @@ function drawScatter(variable) {
     }
 
     function mouseoutFunc(d) {
+        var dotClass = "circle.dot_" + d.Country.replace(/\s/g, '_');
+        d3.selectAll(dotClass).attr("r", dotRadius).classed("red", false);
         return myTooltip.style("display", "none"); // this sets it to invisible!
     }
     /*--------------------------------------------------------------------------
