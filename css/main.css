@@ -11,8 +11,14 @@ svg {
     margin-top: 20px;
 }
 
+/*
 #vis-wrap {
-    margin-bottom: 200px;
+    margin-bottom: 100px;
+}
+*/
+
+#vis-sub {
+ height: 180px;   
 }
 
 svg circle:hover {
@@ -32,6 +38,14 @@ svg {
     background-color: white;
 }
 
+svg.multiple {
+ margin-right: 30px;   
+}
+
+svg#animatedLine {
+ background-color: #fff;   
+}
+
 .axis path,
 .axis line {
     fill: none;
@@ -48,6 +62,9 @@ svg {
     fill: none;
     stroke-opacity: 25%;
     stroke-width: 1px;
+}
+
+.go {
 }
 
 .clicked {
@@ -166,6 +183,7 @@ a:hover {
 
 .red {
     color: red;
+    fill: red;
 }
 
 .myTooltip {
