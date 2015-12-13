@@ -64,7 +64,8 @@ svg#animatedLine {
     stroke-width: 1px;
 }
 
-.go {
+.note {
+ font-style: italic;   
 }
 
 .clicked {
