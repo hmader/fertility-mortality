@@ -48,7 +48,7 @@ function callStep() {
         console.log("Case ", stepCount);
         changeText();
         removeSVG();
-            heatMap(countryById);
+        heatMap(countryById);
         break;
     case 1:
         console.log("Case ", stepCount);
@@ -111,7 +111,7 @@ function loaded(error, world, fertilityData, mortalityData, multipleMapData, wor
 queue()
     .defer(d3.json, "data/world/countries.json")
     .defer(d3.csv, "data/fertilityOverTime.csv") // process
-    .defer(d3.csv, "data/median-U5MRbyCountry.csv")
+    .defer(d3.csv, "data/median-U5MRbyCountry.csv", setCountryById)
     .defer(d3.csv, "data/MultipleMapData.csv", typeAndSet)
     .defer(d3.csv, "data/world-U5MR-overTime.csv")
     .await(loaded);
@@ -125,7 +125,11 @@ function typeAndSet(d) {
     d.Fertility_Rate = +d.Fertility_Rate;
     d.Contraceptive_Prevalence = +d.Contraceptive_Prevalence;
     d.Secondary_Edu_Attendance = +d.Secondary_Edu_Attendance;
-    countryById.set(d.CountryCode, d);
 
+    return d;
+}
+
+function setCountryById(d) {
+    countryById.set(d.CountryCode, d);
     return d;
 }

@@ -10,12 +10,12 @@ function animatedLine() {
     var height = 200 - margin.bottom - margin.top;
     var datapoints = [];
     var years = [];
-    var dateFormat = d3.time.format("%Y");
+    var dateFormat = d3.time.format("%Y").parse;
     var data = worldMortalityDataset;
     //    console.log("AL", data);
     //    console.log("AL", data[0]);
     var MDG = 29;
-    years = d3.keys(worldMortalityDataset[0]).slice(20, 45);
+    years = d3.keys(worldMortalityDataset[0]).slice(20, 46);
 
     console.log("Y", years);
 
@@ -27,24 +27,24 @@ function animatedLine() {
         });
     });
 
-    console.log(datapoints);
+    console.log("datapoints", datapoints);
 
     var xScale = d3.scale.linear().domain(d3.extent(years)).range([margin.left, width - margin.right - margin.left]);
-   
-    var yMax =  d3.max(datapoints, function (d) {
-            // console.log(type.method, +d[type.method]);
-            return d.y;
-        }); 
-    
-    var yMin =  d3.min(datapoints, function (d) {
-            // console.log(type.method, +d[type.method]);
-            return d.y;
-        });
-    
-    var yScale = d3.scale.linear().domain([0, yMax + 10]).range([height - margin.bottom, margin.top]);
+
+    var yMax = d3.max(datapoints, function (d) {
+        // console.log(type.method, +d[type.method]);
+        return d.y;
+    });
+
+    var yMin = d3.min(datapoints, function (d) {
+        // console.log(type.method, +d[type.method]);
+        return d.y;
+    });
+
+    var yScale = d3.scale.linear().domain([0, yMax + 8]).range([height - margin.bottom, margin.top]);
 
 
-    
+
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
@@ -99,52 +99,19 @@ function animatedLine() {
             return lineFunction(interpolatedLine);
         }
     }
+
     /*--------------------------------------------------------------------------
        Go!
-     --------------------------------------------------------------------------*/  
+     --------------------------------------------------------------------------*/
     var svg = d3.select("#vis-sub")
         .append("svg")
         .attr("id", "animatedLine")
         .attr("width", width)
-        .attr("height", height);
-    
-    svg.append("path")
-        .attr("id", "Series1")
-        .attr("fill", "none")
-        .attr("stroke", "#333")
-        .attr("stroke-width", 1);
-    //    .on("mouseover", mouseoverFunc)
-    //        .on("mouseout", mouseoverFunc)
-    //        .on("mousemove", mouseoverFunc);
-
-    d3.select("#Series1")
-        .transition()
-        .duration(3000)
-        .attrTween("d", smoothInterpolation);
-
-    /*======================================================================
-      MDG line
-    ======================================================================*/
-
-    svg.append("line")
-        .attr("class", "MDG")
-    .style("stroke-dasharray", ("3, 3"))
-        .attr("x1", margin.left)
-        .attr("y1", yScale(MDG))
-        .attr("x2", width - margin.left - margin.right)
-        .attr("y2", yScale(MDG))
-    .attr("stroke", "#ebebeb");
-
-    svg.append("text")
-        .attr("class", "aside")
-        .attr("x", width - margin.left - margin.right + 5)
-        .attr("y", yScale(MDG) - 6)
-        .attr("dy", "1em")
-        .style("text-anchor", "start")
-        .text("Global MDG");
+        .attr("height", height)
+        .data(datapoints);
     /*--------------------------------------------------------------------------
          Axes
-       --------------------------------------------------------------------------*/
+      --------------------------------------------------------------------------*/
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + (height - margin.bottom) + ")")
@@ -169,35 +136,118 @@ function animatedLine() {
         .style("text-anchor", "end")
         .attr("class", "label")
         .text("U5MR");
-    
-        svg.append("text")
+
+    svg.append("text")
         .attr("class", "aside")
         .attr("x", width - margin.left - margin.right + 5)
         .attr("y", yScale(yMin) - 6)
         .attr("dy", "1em")
         .style("text-anchor", "start")
-        .text("World U5MR 2014");
+        .text("World U5MR");
+    /*--------------------------------------------------------------------------
+            chart insides
+     --------------------------------------------------------------------------*/
+    svg.append("rect")
+        .attr("class", "background")
+        .style("pointer-events", "all")
+        .attr("width", width - margin.left - margin.right)
+        .attr("height", height)
+        .attr("transform", "translate(0," + (margin.top) + ")")
+        .attr("opacity", 0)
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseout", mouseout);
+
+    svg.append("path")
+        .attr("id", "Series1")
+        .attr("fill", "none")
+        .attr("stroke", "#333")
+        .attr("stroke-width", 1);
+
+    d3.select("#Series1")
+        .transition()
+        .duration(4000)
+        .attrTween("d", smoothInterpolation);
+
+    var yearLine = svg.append("line")
+        .attr("class", "axis")
+        .attr("opacity", 1)
+        .attr("stroke", "#a6a6a6")
+        .attr("stroke-width", 1)
+        .style("pointer-events", "none");
+
+    var caption = svg.append("text")
+        .attr("class", "label")
+        .attr("text-anchor", "start")
+        .style("pointer-events", "none")
+        .attr("dy", -8);
+
+    var curVal = svg.append("text")
+        .attr("class", "label")
+        .attr("text-anchor", "middle")
+        .style("pointer-events", "none")
+        .attr("dy", 13)
+        .attr("y", height);
+
+    /*======================================================================
+      MDG line
+    ======================================================================*/
+
+    svg.append("line")
+        .attr("class", "MDG")
+        .style("stroke-dasharray", ("3, 3"))
+        .attr("x1", margin.left)
+        .attr("y1", yScale(MDG))
+        .attr("x2", width - margin.left - margin.right)
+        .attr("y2", yScale(MDG))
+        .attr("stroke", "#ebebeb");
+
+    svg.append("text")
+        .attr("class", "aside")
+        .attr("x", width - margin.left - margin.right + 5)
+        .attr("y", yScale(MDG) - 6)
+        .attr("dy", "1em")
+        .style("text-anchor", "start")
+        .text("World Goal by 2015");
+
     /*======================================================================
       Mouse Functions
     ======================================================================*/
 
-    //
-    //    function mouseoutFunc() {
-    //
-    //        myTooltip.style("display", "none"); // this sets it to invisible!
-    //    }
+    function mouseover() {
+        console.log(this);
+        return mousemove.call(this);
+    };
 
-    //    function mouseoverFunc(d) {
-    //        myTooltip
-    //            .style("display", null) // this removes the display none setting from it
-    //            .html("<p><span class='tooltipHeader sans'>X</span>" + d.x "</p>");
-    //    }
-    //
-    //    function mousemoveFunc(d) {
-    //        console.log("events", window.event, d3.event);
-    //        myTooltip
-    //            .style("top", (d3.event.pageY - 45) + "px")
-    //            .style("left", (d3.event.pageX + 5) + "px");
-    //    }
+    function mousemove() {
+        var year;
+        year = Math.round(xScale.invert(d3.mouse(this)[0]));
+        console.log("YEAR", year);
+
+        measure = "yr" + year;
+        changeColorMeasure("yr" + year);
+
+        yearLine.attr("opacity", 1)
+            .attr("x1", xScale(year))
+            .attr("y1", yScale(0))
+            .attr("x2", xScale(year))
+            .attr("y2", function (c) {
+                return yScale(worldMortalityDataset[0][year]);
+            });
+        caption.attr("x", xScale(year)).attr("y", function (c) {
+            return yScale((worldMortalityDataset[0][year]));
+        }).text(function (c) {
+            return worldMortalityDataset[0][year] + " deaths per 1,000";
+        });
+        return curVal.attr("x", xScale(year)).text(year);
+    };
+
+    function mouseout() {
+        measure = "yr2015";
+        changeColorMeasure("yr2015");
+        yearLine.attr("opacity", 0);
+        caption.text("");
+        return curVal.text("");
+    };
 
 }

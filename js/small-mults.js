@@ -53,7 +53,7 @@ function drawMultiples() {
       Nesting
      --------------------------------------------------------------------------*/
 
-    var measures = d3.keys(mixedDataset[0]).slice(7, 13); //
+    var measures = d3.keys(mixedDataset[0]).slice(8, 14); //
     console.log("MEASURES", measures);
 
     var newNest = [];
@@ -162,7 +162,7 @@ function drawMultiples() {
             .call(yAxis)
             .append("text")
             .attr("x", -2)
-            .attr("y", m_height - 55)
+            .attr("y", m_height - 65)
             .attr("dy", "1em")
             .style("text-anchor", "start")
             .attr("class", "label")
