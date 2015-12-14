@@ -48,7 +48,6 @@ function drawMultiples() {
         .ticks(0)
         .orient("left");
 
-
     /*--------------------------------------------------------------------------
       Nesting
      --------------------------------------------------------------------------*/
@@ -63,11 +62,13 @@ function drawMultiples() {
         var vals = [];
 
         mixedDataset.forEach(function (d) {
-            vals.push({
-                "value": +d[m],
-                "country": d.Country,
-                "U5MR": d.U5MR2014
-            });
+            if (!isNaN(d[m]) && !isNaN(d.U5MR2014)) {
+                vals.push({
+                    "value": +d[m],
+                    "country": d.Country,
+                    "U5MR": d.U5MR2014
+                });
+            }
         });
 
         newNest.push({
@@ -113,6 +114,7 @@ function drawMultiples() {
        Multiple()
       --------------------------------------------------------------------------*/
     function multiple(thisMeasure) {
+
         var y_Scale = yScale;
         if (thisMeasure.method === "Health_Expenditure_Per_Capita") {
             y_Scale = yScalePow;
@@ -137,10 +139,47 @@ function drawMultiples() {
         console.log("MAX", thisMeasure.method, yMax);
 
         y_Scale.domain([yMax + .1 * yMax, 0]);
-          /*---------------------------------------------------------------------
+        /*---------------------------------------------------------------------
+               Trendline
+        ---------------------------------------------------------------------*/
+        var xSeries = [];
+        var ySeries = [];
+        //        console.log("Xseries", thisMeasure);
+        thisMeasure.value.forEach(function (d) {
+            xSeries.push(+d.U5MR);
+            ySeries.push(+d.value);
+        });
+        //        console.log("XSeries -- ", xSeries);
+        //        console.log("YSeries -- ", ySeries);
+
+        var leastSquaresCoeff = leastSquares(xSeries, ySeries);
+        var x1 = xSeries[0];
+        var y1 = leastSquaresCoeff[0] + leastSquaresCoeff[1];
+        var x2 = xSeries[xSeries.length - 1];
+        var y2 = leastSquaresCoeff[0] * xSeries.length + leastSquaresCoeff[1];
+        var trendData = [[x1, y1, x2, y2]];
+        var trendline = svg.selectAll(".trendline").data(trendData);
+
+        trendline.enter()
+            .append("line")
+            .attr("class", "trendline")
+            .attr("x1", function (d) {
+                return xScale(d[0]);
+            })
+            .attr("y1", function (d) {
+                return yScale(d[1]);
+            })
+            .attr("x2", function (d) {
+                return xScale(d[2]);
+            })
+            .attr("y2", function (d) {
+                return yScale(d[3]);
+            })
+            .attr("stroke", "#000")
+            .attr("stroke-width", 1);
+        /*---------------------------------------------------------------------
                 Axes
         ---------------------------------------------------------------------*/
-
         yAxis.scale(y_Scale);
         xAxis.scale(xScale);
 
@@ -150,7 +189,7 @@ function drawMultiples() {
             .call(xAxis)
             .append("text")
             .attr("x", m_width - m_margin.right - 5)
-            .attr("y", - 20)
+            .attr("y", -20)
             .attr("dy", "1em")
             .style("text-anchor", "end")
             .attr("class", "axis")
@@ -208,9 +247,9 @@ function drawMultiples() {
             .on("mouseout", mouseoutFunc)
             .on("mousemove", mousemoveFunc);
 
-        /*--------------------------------------------------------------------------
-         Mouse Events
-        --------------------------------------------------------------------------*/
+        /*---------------------------------------------------------------------
+             Mouse Events
+        ---------------------------------------------------------------------*/
 
         function mouseoverFunc(d) {
             console.log(this);
@@ -235,4 +274,37 @@ function drawMultiples() {
         }
 
     }
+}
+/*========================================================================
+     leastSquares()
+========================================================================*/
+
+function leastSquares(xSeries, ySeries) {
+    var reduceSumFunc = function (prev, cur) {
+        return prev + cur;
+    };
+
+    var xBar = xSeries.reduce(reduceSumFunc) * 1.0 / xSeries.length;
+    var yBar = ySeries.reduce(reduceSumFunc) * 1.0 / ySeries.length;
+
+    var ssXX = xSeries.map(function (d) {
+            return Math.pow(d - xBar, 2);
+        })
+        .reduce(reduceSumFunc);
+
+    var ssYY = ySeries.map(function (d) {
+            return Math.pow(d - yBar, 2);
+        })
+        .reduce(reduceSumFunc);
+
+    var ssXY = xSeries.map(function (d, i) {
+            return (d - xBar) * (ySeries[i] - yBar);
+        })
+        .reduce(reduceSumFunc);
+
+    var slope = ssXY / ssXX;
+    var intercept = yBar - (xBar * slope);
+    var rSquare = Math.pow(ssXY, 2) / (ssXX * ssYY);
+
+    return [slope, intercept, rSquare];
 }

@@ -4,6 +4,7 @@ var maxSteps = 5;
 var myTooltip = d3.select("body")
     .append("div")
     .attr("class", "myTooltip");
+var disableTooltip = false;
 
 /*======================================================================
  Slide Counter Increment/ Decrement, slide swap
@@ -45,13 +46,18 @@ function changeText() {
 function callStep() {
     switch (stepCount) {
     case 0:
+        /* Heat Map */
+        $("#text-wrap>button.go.previous").addClass("nonClick");
         console.log("Case ", stepCount);
+        disableTooltip = false;
         changeText();
         removeSVG();
         heatMap(countryById);
         break;
     case 1:
+        /* Heat Map, Animated Line */
         console.log("Case ", stepCount);
+        disableTooltip = true;
         changeText();
         removeSVG();
 
@@ -60,6 +66,7 @@ function callStep() {
         break;
 
     case 2:
+        /* Small Multiples */
         console.log("Case ", stepCount);
         changeText();
         removeSVG();
@@ -67,20 +74,27 @@ function callStep() {
         drawMultiples();
         break;
     case 3:
+        /* Small Multiples */
+        console.log("Case ", stepCount);
+        changeText();
+        removeSVG();
+        drawMultiples();
+        break;
+    case 4:
+        /* Small Multiples */
+        console.log("Case ", stepCount);
+        changeText();
+        removeSVG();
+
+        drawMultiples();
+        break;
+    case 5:
+        /* Scatter Chart */
         console.log("Case ", stepCount);
         changeText();
         removeSVG();
 
         drawFMOverTime();
-
-        break;
-    case 4:
-        console.log("Case ", stepCount);
-        changeText();
-        removeSVG();
-        break;
-    case 5:
-        console.log("Case ", stepCount);
         break;
     case 6:
         console.log("Case ", stepCount);

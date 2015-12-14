@@ -29,7 +29,7 @@ function animatedLine() {
 
     console.log("datapoints", datapoints);
 
-    var xScale = d3.scale.linear().domain(d3.extent(years)).range([margin.left, width - margin.right - margin.left]);
+    var xScale = d3.scale.linear().domain(d3.extent(years)).range([margin.left, width - margin.right - margin.left]).clamp(true);
 
     var yMax = d3.max(datapoints, function (d) {
         // console.log(type.method, +d[type.method]);
@@ -71,35 +71,6 @@ function animatedLine() {
             //            console.log("LINE Y", d.y);
             return yScale(d.y)
         });
-
-    /*--------------------------------------------------------------------------
-      smoothInterpolation()
-     --------------------------------------------------------------------------*/
-    function smoothInterpolation() {
-        var interpolate = d3.scale.linear()
-            .domain([0, 1])
-            .range([1, datapoints.length + 1]);
-
-        return function (t) {
-            var flooredX = Math.floor(interpolate(t));
-            var interpolatedLine = datapoints.slice(0, flooredX);
-            //            
-            //            console.log("FLOORED X", flooredX);
-            //            console.log("INTERPOLATED LINE", interpolatedLine);
-
-            if (flooredX > 0 && flooredX < datapoints.length) {
-                var weight = interpolate(t) - flooredX;
-                var weightedLineAverage = datapoints[flooredX].y * weight + datapoints[flooredX - 1].y * (1 - weight);
-                interpolatedLine.push({
-                    "x": interpolate(t) - 1,
-                    "y": weightedLineAverage
-                });
-            }
-
-            return lineFunction(interpolatedLine);
-        }
-    }
-
     /*--------------------------------------------------------------------------
        Go!
      --------------------------------------------------------------------------*/
@@ -108,7 +79,7 @@ function animatedLine() {
         .attr("id", "animatedLine")
         .attr("width", width)
         .attr("height", height)
-        .data(datapoints);
+        .data([datapoints]);
     /*--------------------------------------------------------------------------
          Axes
       --------------------------------------------------------------------------*/
@@ -162,12 +133,19 @@ function animatedLine() {
         .attr("id", "Series1")
         .attr("fill", "none")
         .attr("stroke", "#333")
-        .attr("stroke-width", 1);
+        .attr("stroke-width", 1)
+        .attr("d", function (d) {
+            return lineFunction(d);
+        });
 
-    d3.select("#Series1")
+    var path = d3.select("#Series1");
+    var totalLength = path.node().getTotalLength();
+    path.attr("stroke-dasharray", totalLength + " " + totalLength)
+        .attr("stroke-dashoffset", totalLength)
         .transition()
         .duration(4000)
-        .attrTween("d", smoothInterpolation);
+        .ease("linear")
+        .attr("stroke-dashoffset", 0);
 
     var yearLine = svg.append("line")
         .attr("class", "axis")
@@ -222,7 +200,7 @@ function animatedLine() {
     function mousemove() {
         var year;
         year = Math.round(xScale.invert(d3.mouse(this)[0]));
-        console.log("YEAR", year);
+        //        console.log("YEAR", year);
 
         measure = "yr" + year;
         changeColorMeasure("yr" + year);

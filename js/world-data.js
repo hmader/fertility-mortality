@@ -129,28 +129,30 @@ function heatMap(countrybyid) {
      --------------------------------------------------------------------------*/
 
     function mouseoverFunc(d) {
-        //    console.log("THIS", this);
-        var toolstring = null;
+        if (!disableTooltip) {
+            //    console.log("THIS", this);
+            var toolstring = null;
 
-        $(this).addClass("hovered");
-        //    console.log("THIS after", this);
+            $(this).addClass("hovered");
+            //    console.log("THIS after", this);
 
-        if (countryById.get(d.id)) {
+            if (countryById.get(d.id)) {
 
-            if (!isNaN(countryById.get(d.id)["yr2015"])) {
-                toolstring = "<p><span class='tooltipHeader'>" + countryById.get(d.id)["Country"] + "</span><br>Child mortality: " + countryById.get(d.id)["yr2015"] + "</p>";
+                if (!isNaN(countryById.get(d.id)["yr2015"])) {
+                    toolstring = "<p><span class='tooltipHeader'>" + countryById.get(d.id)["Country"] + "</span><br>Child mortality: " + countryById.get(d.id)["yr2015"] + "</p>";
+                } else {
+                    toolstring = "No Data";
+                }
             } else {
                 toolstring = "No Data";
             }
-        } else {
-            toolstring = "No Data";
-        }
 
-        myTooltip
-            .style("opacity", 1)
-            .style("display", null)
-            .html(toolstring);
-        //    console.log("moused over", toolstring);
+            myTooltip
+                .style("opacity", 1)
+                .style("display", null)
+                .html(toolstring);
+            //    console.log("moused over", toolstring);
+        }
     }
 
     function mousemoveFunc(d) {
