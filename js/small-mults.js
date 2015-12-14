@@ -116,9 +116,9 @@ function drawMultiples() {
     function multiple(thisMeasure) {
 
         var y_Scale = yScale;
-        if (thisMeasure.method === "Health_Expenditure_Per_Capita") {
-            y_Scale = yScalePow;
-        }
+        //        if (thisMeasure.method === "Health_Expenditure_Per_Capita") {
+        //            y_Scale = yScalePow;
+        //        }
         console.log("NEST", thisMeasure);
         //        console.log("MIXEDDATA", mixedDataset);
         var svg = d3.select(this);
@@ -139,44 +139,7 @@ function drawMultiples() {
         console.log("MAX", thisMeasure.method, yMax);
 
         y_Scale.domain([yMax + .1 * yMax, 0]);
-        /*---------------------------------------------------------------------
-               Trendline
-        ---------------------------------------------------------------------*/
-        var xSeries = [];
-        var ySeries = [];
-        //        console.log("Xseries", thisMeasure);
-        thisMeasure.value.forEach(function (d) {
-            xSeries.push(+d.U5MR);
-            ySeries.push(+d.value);
-        });
-        //        console.log("XSeries -- ", xSeries);
-        //        console.log("YSeries -- ", ySeries);
 
-        var leastSquaresCoeff = leastSquares(xSeries, ySeries);
-        var x1 = xSeries[0];
-        var y1 = leastSquaresCoeff[0] + leastSquaresCoeff[1];
-        var x2 = xSeries[xSeries.length - 1];
-        var y2 = leastSquaresCoeff[0] * xSeries.length + leastSquaresCoeff[1];
-        var trendData = [[x1, y1, x2, y2]];
-        var trendline = svg.selectAll(".trendline").data(trendData);
-
-        trendline.enter()
-            .append("line")
-            .attr("class", "trendline")
-            .attr("x1", function (d) {
-                return xScale(d[0]);
-            })
-            .attr("y1", function (d) {
-                return yScale(d[1]);
-            })
-            .attr("x2", function (d) {
-                return xScale(d[2]);
-            })
-            .attr("y2", function (d) {
-                return yScale(d[3]);
-            })
-            .attr("stroke", "#000")
-            .attr("stroke-width", 1);
         /*---------------------------------------------------------------------
                 Axes
         ---------------------------------------------------------------------*/
@@ -201,11 +164,12 @@ function drawMultiples() {
             .call(yAxis)
             .append("text")
             .attr("x", -2)
-            .attr("y", m_height - 65)
+            .attr("y", m_height - 55)
             .attr("dy", "1em")
             .style("text-anchor", "start")
             .attr("class", "label")
             .text(thisMeasure.method.replace('_', ' '));
+
 
         /*---------------------------------------------------------------------
                 Circles
@@ -242,11 +206,81 @@ function drawMultiples() {
                 return "dot_" + d.country.replace(/\s/g, '_');
             });
 
+        circles.classed("dots", true);
 
         circles.on("mouseover", mouseoverFunc)
             .on("mouseout", mouseoutFunc)
             .on("mousemove", mousemoveFunc);
+        /*---------------------------------------------------------------------
+                      Trendline
+               ---------------------------------------------------------------------*/
+        var myArray = [];
+        var a0 = 0;
+        var b0 = 0;
+        var b1 = 0;
+        var c1 = 0;
 
+        thisMeasure.value.forEach(function (d, i) {
+            myArray.push([+d.U5MR, +d.value]);
+            a0 = myArray[i][0] * myArray[i][1] + a0;
+            b0 = myArray[i][0] + b0;
+            b1 = myArray[i][1] + b1;
+            c1 = myArray[i][0] * myArray[i][0] + c1;
+        });
+        console.log("MYARRAY", myArray);
+
+        var a = myArray.length * a0;
+        var b = b0 * b1;
+        var c = myArray.length * c1;
+        var d = b0 * b0;
+        var slope = (a - b) / (c - d)
+        var e = b1;
+        var f = slope * b0;
+        var intercept = (e - f) / myArray.length;
+        var x1 = d3.min(myArray, function (d) {
+            // console.log(type.method, +d[type.method]);
+            return +d[0];
+        });
+        var y1 = x1 * slope + intercept;
+        var x2 = d3.max(myArray, function (d) {
+            // console.log(type.method, +d[type.method]);
+            return +d[0];
+        });
+        var y2 = slope * x2 + intercept;
+        var trendData = [[x1, y1, x2, y2]];
+        console.log("TRENDDATA", trendData);
+
+        var trendline = svg.selectAll(".trendline")
+            .data(trendData);
+
+        trendline.enter()
+            .append("line")
+            .attr("class", "trendline")
+            .attr("x1", function (d) {
+                return xScale(d[0]);
+            })
+            .attr("y1", function (d) {
+                return yScale(d[1]);
+            })
+            .attr("x2", function (d) {
+                return xScale(d[2]);
+            })
+            .attr("y2", function (d) {
+                return yScale(d[3]);
+            })
+            .attr("stroke", "grey")
+            .attr("stroke-width", 1)
+            .attr("opacity", 0);
+        
+        var rvalue = svg.append("text")
+            .attr("x", m_margin.left -2)
+            .attr("y", m_height - 40)
+            .attr("dy", "1em")
+            .style("text-anchor", "start")
+            .attr("class", "rvalue")
+            .text("r:");
+        
+        rvalue.classed("label", true);
         /*---------------------------------------------------------------------
              Mouse Events
         ---------------------------------------------------------------------*/

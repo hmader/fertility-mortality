@@ -48,6 +48,7 @@ function callStep() {
     case 0:
         /* Heat Map */
         $("#text-wrap>button.go.previous").addClass("nonClick");
+        $("#text-wrap>button.go.previous").prop("disabled", true);
         console.log("Case ", stepCount);
         disableTooltip = false;
         changeText();
@@ -56,6 +57,8 @@ function callStep() {
         break;
     case 1:
         /* Heat Map, Animated Line */
+        $("#text-wrap>button.go.previous").removeClass("nonClick");
+        $("#text-wrap>button.go.previous").prop("disabled", false);
         console.log("Case ", stepCount);
         disableTooltip = true;
         changeText();
@@ -72,6 +75,7 @@ function callStep() {
         removeSVG();
 
         drawMultiples();
+
         break;
     case 3:
         /* Small Multiples */
@@ -79,6 +83,8 @@ function callStep() {
         changeText();
         removeSVG();
         drawMultiples();
+        d3.selectAll("circle.dots").attr("opacity", .2);
+        d3.selectAll("line.trendline").attr("opacity", 1);
         break;
     case 4:
         /* Small Multiples */
@@ -110,6 +116,9 @@ function callStep() {
 ======================================================================*/
 function loaded(error, world, fertilityData, mortalityData, multipleMapData, worldLine) {
     console.log("COUNTRY BY ID 1", countryById);
+
+    $("#text-wrap>button.go.previous").addClass("nonClick");
+    $("#text-wrap>button.go.previous").prop("disabled", true);
 
     worldMap = world;
     fertilityDataset = fertilityData;
