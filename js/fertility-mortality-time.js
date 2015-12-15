@@ -37,6 +37,8 @@ function drawFMOverTime() {
     svg = d3.select('#vis').append('svg')
         .attr('width', width)
         .attr('height', height);
+    
+    var sliderOkay = false;
 
     /*--------------------------------------------------------------------------
        Data Variables
@@ -65,18 +67,29 @@ function drawFMOverTime() {
         .labelFormat(d3.time.format('%Y'))
         .width(500)
         .height(50)
-        .playButton(true) // can also be set to loop
+        .playButton(true)
+        .playbackRate(.85) // can also be set to loop
         .on("change", function (d) {
             filterValue = dateFormat(d3.time.year(d));
             console.log("filterValue", filterValue);
-            redraw(filterValue);
-            // logic here is check if it's "playing", and if value is 
-            // 2013, then set value to 1970 and stop it
-        });
+            if (filterValue <= 2013) {
+                redraw(filterValue);
+                end();
+            }
+        })
+        .play();
 
     function drawSlider() {
         d3.select("#slider")
             .call(slider);
+        sliderOkay = true;
+    }
+
+    function end() {
+        console.log(slider.isAtEnd());
+        if (slider.isAtEnd()) {
+            slider.pause();
+        }
     }
 
     /*---------------------------------------------------------------------
@@ -111,14 +124,6 @@ function drawFMOverTime() {
             .attr("class", "label")
             .text("Fertility Rate");
     }
-    /*--------------------------------------------------------------------------
-       Queue in Data Files
-      --------------------------------------------------------------------------*/
-    // we use queue because we have 2 data files to load.
-    //    queue()
-    //        .defer(d3.csv, "data/fertilityOverTime.csv") // process
-    //        .defer(d3.csv, "data/median-U5MRbyCountry.csv")
-    //        .await(loaded);
 
     /*--------------------------------------------------------------------------
        Change Functions
@@ -167,8 +172,8 @@ function drawFMOverTime() {
       --------------------------------------------------------------------------*/
     function nestData(d) {
 
-        years = d3.keys(mortalityDataset[0]).slice(21, 65); //
-        //    console.log(years);
+        years = d3.keys(mortalityDataset[0]).slice(22, 66); //
+        console.log("YEARS", years);
 
         mortalityDataset.forEach(function (d) {
             countries.push(d.Country);

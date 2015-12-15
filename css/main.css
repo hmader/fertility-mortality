@@ -34,10 +34,6 @@ svg g text.ylabel {
     fill: #2A2A2A;
 }
 
-svg {
-    background-color: white;
-}
-
 svg.multiple {
  margin-right: 15px;
 }
@@ -92,7 +88,7 @@ svg#animatedLine {
     stroke-width: 1px;
 }
 
-g.countries path:hover {
+g.countries path.hoverable:hover {
  opacity: .6;   
 }
 
@@ -191,17 +187,23 @@ a:hover {
     fill: red;
 }
 
-.myTooltip {
+.myTooltip, .mapTooltip {
     position: absolute;
     z-index: 10;
 }
 
-.myTooltip p {
-    background-color: rgba(255, 255, 255, .8);
+.myTooltip p, .mapTooltip {
+    background-color: rgba(255, 255, 255, .9);
     padding: .5em 1em;
     font-size: 12px;
     line-height: 17px;
     color: black;
+}
+
+.mapTooltip svg {
+  background-color: rgba(255, 255, 255, 0);
+    width: 200px;
+    height: 60px;
 }
 
 .tooltipHeader {

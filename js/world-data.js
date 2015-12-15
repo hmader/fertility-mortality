@@ -49,6 +49,16 @@ function drawLegend() {
 ======================================================================*/
 function heatMap(countrybyid) {
 
+    var mapTooltip = d3.select("body")
+        .append("div")
+        .attr("class", "mapTooltip");
+
+    mapTooltip.append("p")
+        .attr("class", "tooltipHeader");
+
+    mapTooltip.append("div")
+        .attr("class", "chart");
+
     console.log("MIXED DATA", mortalityDataset);
     console.log("MAP", worldMap);
 
@@ -95,8 +105,10 @@ function heatMap(countrybyid) {
         var countries = topojson.feature(world_map, world_map.objects.units).features;
         //        console.log("country by id", countryById);
 
-        countryShapes = g.append("g")
-            .attr("class", "countries")
+        var countryGroup = g.append("g")
+            .attr("class", "countries");
+
+        countryShapes = countryGroup
             .selectAll("path")
             .data(countries)
             .enter()
@@ -120,7 +132,12 @@ function heatMap(countrybyid) {
             .attr('fill', function (d, i) {
                 return getColor(d);
             })
-            .attr("stroke", "#fff");
+            .attr("stroke", "#fff")
+            .attr("class", "countryShape");
+
+        if (!disableTooltip) {
+            d3.selectAll(".countryShape").classed("hoverable", true);
+        }
     }
 
 
@@ -137,9 +154,12 @@ function heatMap(countrybyid) {
             //    console.log("THIS after", this);
 
             if (countryById.get(d.id)) {
-
-                if (!isNaN(countryById.get(d.id)["yr2015"])) {
-                    toolstring = "<p><span class='tooltipHeader'>" + countryById.get(d.id)["Country"] + "</span><br>Child mortality: " + countryById.get(d.id)["yr2015"] + "</p>";
+                var mortality2015 = countryById.get(d.id)["yr2015"];
+                if (!isNaN(mortality2015)) {
+                    // set the tooltip title
+                    toolstring = countryById.get(d.id)["Country"];
+                    // now the chart
+                    drawTooltipChart(mortality2015);
                 } else {
                     toolstring = "No Data";
                 }
@@ -147,23 +167,136 @@ function heatMap(countrybyid) {
                 toolstring = "No Data";
             }
 
-            myTooltip
+            mapTooltip
                 .style("opacity", 1)
-                .style("display", null)
+                .style("display", null);
+
+            mapTooltip.select("p")
                 .html(toolstring);
             //    console.log("moused over", toolstring);
         }
     }
 
     function mousemoveFunc(d) {
-        myTooltip
+        mapTooltip
             .style("top", (d3.event.pageY - 5) + "px")
             .style("left", (d3.event.pageX + 10) + "px");
     }
 
     function mouseoutFunc(d) {
-        return myTooltip.style("display", "none"); // this sets it to invisible!
+        d3.select("svg.tooltipChart").remove();
+        return mapTooltip.style("display", "none"); // this sets it to invisible!
     }
+
+    function drawTooltipChart(mortval) {
+
+        var m_margin = {
+                top: 20,
+                right: 27,
+                bottom: 10,
+                left: 10
+            },
+            m_width = 200 - m_margin.left - m_margin.right,
+            m_height = 60 - m_margin.top - m_margin.bottom;
+
+        var xScale = d3.scale.linear().domain([0, 156.9]).range([m_margin.left, m_width]);
+
+        var svg = mapTooltip.select("div.chart")
+            .append("svg")
+            .attr("class", "tooltipChart");
+        /* Country Specific */
+        
+        svg.append("rect")
+            .attr("y", m_margin.top - 5)
+            .attr("x", m_margin.left)
+            .attr("height", 10)
+            .attr("width", function () {
+                return xScale(mortval) - m_margin.left;
+            })
+            .attr("fill", "#000")
+            .attr("opacity", .5);
+
+        svg.append("line")
+            .attr("x1", function () {
+                return (xScale(mortval));
+            })
+            .attr("y1", m_margin.top - 7)
+            .attr("y2", m_margin.top + 7)
+            .attr("x2", function () {
+                return (xScale(mortval));
+            })
+            .attr("stroke", "#000")
+            .attr("stroke-width", 1);
+
+        svg.append("text")
+            .attr("x", function () {
+                return xScale(mortval);
+            })
+            .attr("y", m_margin.top - 10)
+            .attr("class", "label")
+            .text(mortval)
+        .attr("fill", "#E60000");
+
+        /* World Line */
+        svg.append("line")
+            .attr("x1", function () {
+                return (xScale(42.5));
+            })
+            .attr("y1", m_margin.top - 7)
+            .attr("y2", m_margin.top + 14)
+            .attr("x2", function () {
+                return (xScale(42.5));
+            })
+            .attr("stroke", "#000")
+            .attr("stroke-width", 1);
+
+        svg.append("text")
+            .attr("x", function () {
+                return (xScale(42.5));
+            })
+            .attr("y", m_margin.top + 25)
+            .attr("class", "label")
+            .style("text-anchor", "middle")
+            .text("World");
+        
+        svg.append("text")
+            .attr("x", function () {
+                return (xScale(42.5));
+            })
+            .attr("y", m_margin.top + 37)
+        .style("text-anchor", "middle")
+            .attr("class", "label")
+            .text("(42.5)");
+        
+        /* ********** */
+        svg.append("line")
+            .attr("y1", m_margin.top)
+            .attr("x1", m_margin.left)
+            .attr("y2", m_margin.top)
+            .attr("x2", m_width)
+            .attr("stroke", "#000")
+            .attr("stroke-width", 1);
+
+        svg.append("text")
+            .attr("x", 0)
+            .attr("y", m_margin.top + 3)
+            .attr("class", "label")
+            .text("0");
+
+        svg.append("text")
+            .attr("x", m_width + 5)
+            .attr("y", m_margin.top + 3)
+            .attr("class", "label")
+            .text("Highest");
+
+        svg.append("text")
+            .attr("x", m_width + 6)
+            .attr("y", m_margin.top + 15)
+            .attr("class", "label")
+            .text("(156.9)");
+    }
+
+    /**/
 
     draw();
 }

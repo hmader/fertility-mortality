@@ -20,6 +20,13 @@ var svg;
 
 var dateFormat = d3.time.format("%Y");
 
+
+var myTooltip = d3.select("body")
+    .append("div")
+    .attr("class", "myTooltip");
+
+var disableTooltip = false;
+
 var slideText = [{
         "slide": 0,
         "title": "Global Child Mortality",

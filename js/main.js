@@ -1,11 +1,6 @@
 var stepCount = 0;
 var maxSteps = 5;
 
-var myTooltip = d3.select("body")
-    .append("div")
-    .attr("class", "myTooltip");
-var disableTooltip = false;
-
 /*======================================================================
  Slide Counter Increment/ Decrement, slide swap
 ======================================================================*/

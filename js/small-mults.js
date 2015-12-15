@@ -97,19 +97,6 @@ function drawMultiples() {
         .attr("transform", "translate(" + m_margin.left + "," + m_margin.top + ")")
         .each(multiple); // uses each to call the multiple code for each measure
 
-    multiples.on("click", clickMultiple);
-
-    /*--------------------------------------------------------------------------
-      clickMultiple()
-     --------------------------------------------------------------------------*/
-    function clickMultiple(d) {
-        console.log("CLICKED", $(this));
-        console.log("CLICKED", $(this).attr("class"));
-        var vis = d3.select("#vis");
-        console.log("VIS", vis);
-        console.log(vis.select("svg"));
-    }
-
     /*--------------------------------------------------------------------------
        Multiple()
       --------------------------------------------------------------------------*/
