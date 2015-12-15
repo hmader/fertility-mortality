@@ -159,7 +159,7 @@ function heatMap(countrybyid) {
                     // set the tooltip title
                     toolstring = countryById.get(d.id)["Country"];
                     // now the chart
-                    drawTooltipChart(mortality2015);
+                    drawTooltipChart(toolstring, mortality2015);
                 } else {
                     toolstring = "No Data";
                 }
@@ -188,7 +188,7 @@ function heatMap(countrybyid) {
         return mapTooltip.style("display", "none"); // this sets it to invisible!
     }
 
-    function drawTooltipChart(mortval) {
+    function drawTooltipChart(country, mortval) {
 
         var m_margin = {
                 top: 20,
