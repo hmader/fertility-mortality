@@ -49,10 +49,6 @@ function drawLegend() {
 ======================================================================*/
 function heatMap(countrybyid) {
 
-    var mapTooltip = d3.select("body")
-        .append("div")
-        .attr("class", "mapTooltip");
-
     mapTooltip.append("p")
         .attr("class", "tooltipHeader");
 
@@ -213,7 +209,7 @@ function heatMap(countrybyid) {
             .attr("width", function () {
                 return xScale(mortval) - m_margin.left;
             })
-            .attr("fill", "#000")
+            .attr("fill", "#FF0000")
             .attr("opacity", .5);
 
         svg.append("line")
@@ -304,7 +300,7 @@ function heatMap(countrybyid) {
 /*======================================================================
     Change Map Color Scale
 ======================================================================*/
-function changeColorMeasure(year) {
+function changeColorMeasure() {
     countryShapes.attr('fill', function (d, i) {
         return getColor(d);
     });

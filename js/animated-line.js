@@ -140,12 +140,24 @@ function animatedLine() {
 
     var path = d3.select("#Series1");
     var totalLength = path.node().getTotalLength();
-    path.attr("stroke-dasharray", totalLength + " " + totalLength)
-        .attr("stroke-dashoffset", totalLength)
-        .transition()
-        .duration(4000)
-        .ease("linear")
-        .attr("stroke-dashoffset", 0);
+    var dashed = path.attr("stroke-dasharray", totalLength + " " + totalLength)
+        .attr("stroke-dashoffset", totalLength);
+
+    dashed.transition()
+        .duration(5000)
+        .attrTween("stroke-dashoffset", function () {
+            var interpolateline = d3.scale.linear()
+                .domain([0, 1])
+                .range([totalLength, 0]);
+
+            var interpolateRound = d3.interpolateRound(1990, 2015);
+
+            return function (t) {
+                measure = "yr" + interpolateRound(t);
+                changeColorMeasure(measure);
+                return interpolateline(t);
+            };
+        });
 
     var yearLine = svg.append("line")
         .attr("class", "axis")
@@ -203,7 +215,7 @@ function animatedLine() {
         //        console.log("YEAR", year);
 
         measure = "yr" + year;
-        changeColorMeasure("yr" + year);
+        changeColorMeasure();
 
         yearLine.attr("opacity", 1)
             .attr("x1", xScale(year))

@@ -37,7 +37,7 @@ function drawFMOverTime() {
     svg = d3.select('#vis').append('svg')
         .attr('width', width)
         .attr('height', height);
-    
+
     var sliderOkay = false;
 
     /*--------------------------------------------------------------------------
@@ -193,12 +193,16 @@ function drawFMOverTime() {
                 // console.log("MATCHING COUNTRY", m.Country, f);
                 years.forEach(function (y) {
 
+                    // if ((+f[0][y] != 0) && (+m[y] != 0)) {
+
                     prenest.push({
                         country: m.Country,
                         year: y,
-                        mRate: m[y],
-                        fRate: f[0][y]
+                        mRate: +m[y],
+                        fRate: +f[0][y]
                     });
+                    //  };
+
                     // console.log("YEAR - This is the current year of the loop", y); 
                     // console.log("Value - This is the mortality rate value at the current country and year of the loops", m.Country, y, m[y]); 
                     // console.log("F-VALUE - this is the current fertility rate value of the year and country", f[0][y]);
@@ -208,7 +212,7 @@ function drawFMOverTime() {
             }
         });
 
-        //    console.log("PRENEST", prenest);
+        console.log("PRENEST", prenest);
 
         //     nest = d3.nest()
         //                .key(function (d) {
@@ -222,7 +226,7 @@ function drawFMOverTime() {
             })
             .map(prenest, d3.map);
 
-        //    console.log("NEST", nest);
+        console.log("NEST", nest);
     }
     /*--------------------------------------------------------------------------
        drawScatter()

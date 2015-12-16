@@ -10,6 +10,18 @@ function drawMultiples() {
 
     var dotRadius = 2;
     var highlight = "";
+
+    var rs = [{
+        "Fertility_Rate": .861,
+        "Health_Expenditure_Per_Capita": -.433,
+        "Contraceptive_Prevalence": -.804,
+        "Percent_Below_Poverty_Line": .657,
+        "Secondary_Edu_Attendance": -.776,
+        "Primary_Edu_Attendance": -.777
+
+    }]
+
+    console.log("RS", rs);
     /*--------------------------------------------------------------------------
            Color Scale
     --------------------------------------------------------------------------*/
@@ -32,7 +44,7 @@ function drawMultiples() {
         .range([m_margin.top, m_height - m_margin.bottom]);
     var xMax = d3.max(mixedDataset, function (d) {
         //        console.log(d);
-        return +d.U5MR2014;
+        return +d.U5MR2013;
     });
     console.log("xMax", xMax);
     xScale.domain([0, xMax]);
@@ -62,11 +74,11 @@ function drawMultiples() {
         var vals = [];
 
         mixedDataset.forEach(function (d) {
-            if (!isNaN(d[m]) && !isNaN(d.U5MR2014)) {
+            if (!isNaN(d[m]) && !isNaN(d.U5MR2013)) {
                 vals.push({
                     "value": +d[m],
                     "country": d.Country,
-                    "U5MR": d.U5MR2014
+                    "U5MR": d.U5MR2013
                 });
             }
         });
@@ -139,23 +151,34 @@ function drawMultiples() {
             .call(xAxis)
             .append("text")
             .attr("x", m_width - m_margin.right - 5)
-            .attr("y", -20)
+            .attr("y", -15)
             .attr("dy", "1em")
             .style("text-anchor", "end")
             .attr("class", "axis")
             .text("U5MR");
 
-        svg.append("g")
+        yaxis = svg.append("g")
             .attr("class", "y axis")
             .attr("transform", "translate(" + (m_margin.left) + ",0)")
             .call(yAxis)
             .append("text")
-            .attr("x", -2)
+            .attr("transform", "rotate(-90)")
+            .attr("x", -16)
+            .attr("y", 3)
+            .attr("dy", "1em")
+            .style("text-anchor", "end")
+            .attr("class", "axis")
+            .text("Factor");
+
+
+        svg.append("text")
+            .attr("x", m_margin.left - 2)
             .attr("y", m_height - 55)
             .attr("dy", "1em")
             .style("text-anchor", "start")
-            .attr("class", "label")
-            .text(thisMeasure.method.replace('_', ' '));
+            .attr("class", "multFactor")
+            .attr("fill", "#808080")
+            .text("Factor: " + thisMeasure.method.replace('_', ' '));
 
 
         /*---------------------------------------------------------------------
@@ -177,17 +200,7 @@ function drawMultiples() {
                 }
             })
             .attr("r", dotRadius) // you might want to increase your dotRadius
-            .attr("fill", function (d) {
-                if (!isNaN(d.value) && !isNaN(d.U5MR)) {
-                    if (d.country === highlight) {
-                        return "#FF0000";
-                    } else {
-                        return "#0099FF";
-                    }
-                } else {
-                    return "#fff";
-                }
-            })
+            .attr("fill", "#0099FF")
             .attr("opacity", ".6")
             .attr("class", function (d) {
                 return "dot_" + d.country.replace(/\s/g, '_');
@@ -230,8 +243,14 @@ function drawMultiples() {
         });
         var y1 = x1 * slope + intercept;
         var x2 = d3.max(myArray, function (d) {
-            // console.log(type.method, +d[type.method]);
-            return +d[0];
+            if (thisMeasure.method == "Health_Expenditure_Per_Capita") {
+                return 73;
+            } else if (thisMeasure.method == "Contraceptive_Prevalence") {
+                return 120;
+            } else {
+                // console.log(type.method, +d[type.method]);
+                return +d[0];
+            }
         });
         var y2 = slope * x2 + intercept;
         var trendData = [[x1, y1, x2, y2]];
@@ -258,16 +277,23 @@ function drawMultiples() {
             .attr("stroke", "grey")
             .attr("stroke-width", 1)
             .attr("opacity", 0);
-        
+
         var rvalue = svg.append("text")
-            .attr("x", m_margin.left -2)
+            .attr("x", m_margin.left - 2)
             .attr("y", m_height - 40)
             .attr("dy", "1em")
             .style("text-anchor", "start")
             .attr("class", "rvalue")
-            .text("r:");
-        
-        rvalue.classed("label", true);
+            .text("r-value: " + rs[0][thisMeasure.method])
+            .attr("fill", function () {
+                if (thisMeasure.method === "Fertility_Rate") {
+                    return "#0099FF";
+                } else {
+                    return "#808080";
+                }
+            })
+            .attr("opacity", 0);
+
         /*---------------------------------------------------------------------
              Mouse Events
         ---------------------------------------------------------------------*/

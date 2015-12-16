@@ -79,26 +79,30 @@ function callStep() {
         removeSVG();
         drawMultiples();
         d3.selectAll("circle.dots").attr("opacity", .2);
+        d3.select("g.Fertility_Rate").selectAll("circle.dots").attr("opacity", .6);
         d3.selectAll("line.trendline").attr("opacity", 1);
+        d3.selectAll(".rvalue").attr("opacity", 1);
         break;
     case 4:
-        /* Small Multiples */
-        console.log("Case ", stepCount);
-        changeText();
-        removeSVG();
-
-        drawMultiples();
-        break;
-    case 5:
         /* Scatter Chart */
+        $("div.end-slide").addClass("hide");
+        $("#vis-sub").removeClass("hide");
+        $("#vis-wrap").removeClass("hide");
+        $("#text-wrap").removeClass("hide");
+
+
         console.log("Case ", stepCount);
         changeText();
         removeSVG();
 
         drawFMOverTime();
         break;
-    case 6:
+    case 5:
         console.log("Case ", stepCount);
+        $("div.end-slide").removeClass("hide");
+        $("#vis-sub").addClass("hide");
+        $("#vis-wrap").addClass("hide");
+        $("#text-wrap").addClass("hide");
         break;
     default:
         console.log("Default Break");
