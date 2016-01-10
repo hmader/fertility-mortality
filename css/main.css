@@ -67,6 +67,11 @@ svg#animatedLine {
     font-style: italic;
 }
 
+.hint {
+font-style: italic;
+    color: #0099FF;
+}
+
 .clicked {
     fill: #FF0000
 }
@@ -169,12 +174,6 @@ div.end-slide {
     min-height: 100vh;
     background-color: #FFF;
     opacity: 1;
-/*
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 15;
-*/
     transition: 1s;
         padding: 0;
 }
@@ -212,6 +211,10 @@ div.end-slide h1 {
     list-style: disc;
 }
 
+.end {
+    padding: 1em 4em;
+}
+
 .dk {
     background-color: #33acff;
     color: #fff;
@@ -229,11 +232,15 @@ div.end-slide h1 {
 
 a {
     color: #0099FF;
+    font-size: .9em;
+    font-style: italic;
     text-decoration: none;
 }
 
 a:hover {
-    color: rgb(255, 0, 153);
+    opacity: .6;
+    color: #0099FF;
+    cursor: pointer;
 }
 
 .sans {
@@ -275,7 +282,7 @@ a:hover {
 .mapTooltip svg {
     background-color: rgba(255, 255, 255, 0);
     width: 200px;
-    height: 60px;
+    height: 80px;
 }
 
 .tooltipHeader {

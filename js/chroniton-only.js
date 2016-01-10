@@ -28,9 +28,9 @@ var handleRadius = 6,
 
 function chroniton() {
     var margin = {
-            top: 10,
+            top: 15,
             right: 20,
-            bottom: 20,
+            bottom: 25,
             left: 20
         },
         domain = [new Date('1/1/2000'), new Date()],

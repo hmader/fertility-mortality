@@ -1,13 +1,13 @@
 function animatedLine() {
 
     var margin = {
-        top: 15,
+        top: 45,
         right: 75,
         bottom: 25,
         left: 45
     };
     var width = 950 - margin.right - margin.left;
-    var height = 200 - margin.bottom - margin.top;
+    var height = 250 - margin.bottom - margin.top;
     var datapoints = [];
     var years = [];
     var dateFormat = d3.time.format("%Y").parse;
@@ -80,6 +80,14 @@ function animatedLine() {
         .attr("width", width)
         .attr("height", height)
         .data([datapoints]);
+
+    svg.append("text")
+        .attr("x", margin.left)
+        .attr("y", 15)
+        .attr("font-size", "12")
+        .attr("fill", "#0099FF")
+        .attr("font-style", "italic")
+        .text("Roll over the line chart below to see the world Under-5 Mortality rate and how the map looked for that year.");
     /*--------------------------------------------------------------------------
          Axes
       --------------------------------------------------------------------------*/

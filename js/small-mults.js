@@ -64,7 +64,7 @@ function drawMultiples() {
       Nesting
      --------------------------------------------------------------------------*/
 
-    var measures = d3.keys(mixedDataset[0]).slice(8, 14); //
+    var measures = d3.keys(mixedDataset[0]).slice(8, 13); //
     console.log("MEASURES", measures);
 
     var newNest = [];
@@ -89,6 +89,7 @@ function drawMultiples() {
         });
 
     });
+
     console.log("NEWNEST", newNest);
 
     svg = d3.select("#vis")

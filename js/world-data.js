@@ -192,8 +192,7 @@ function heatMap(countrybyid) {
                 bottom: 10,
                 left: 10
             },
-            m_width = 200 - m_margin.left - m_margin.right,
-            m_height = 60 - m_margin.top - m_margin.bottom;
+            m_width = 200 - m_margin.left - m_margin.right;
 
         var xScale = d3.scale.linear().domain([0, 156.9]).range([m_margin.left, m_width]);
 
@@ -209,8 +208,10 @@ function heatMap(countrybyid) {
             .attr("width", function () {
                 return xScale(mortval) - m_margin.left;
             })
-            .attr("fill", "#FF0000")
-            .attr("opacity", .5);
+            .attr('fill', function () {
+                return mapColorScale(mortval);
+            })
+            .attr("opacity", 1);
 
         svg.append("line")
             .attr("x1", function () {
@@ -230,7 +231,7 @@ function heatMap(countrybyid) {
             })
             .attr("y", m_margin.top - 10)
             .attr("class", "label")
-            .text(mortval)
+            .text(mortval + "*")
         .attr("fill", "#E60000");
 
         /* World Line */
@@ -262,7 +263,7 @@ function heatMap(countrybyid) {
             .attr("y", m_margin.top + 37)
         .style("text-anchor", "middle")
             .attr("class", "label")
-            .text("(42.5)");
+            .text("(42.5*)");
         
         /* ********** */
         svg.append("line")
@@ -289,7 +290,13 @@ function heatMap(countrybyid) {
             .attr("x", m_width + 6)
             .attr("y", m_margin.top + 15)
             .attr("class", "label")
-            .text("(156.9)");
+            .text("(156.9*)");
+
+        svg.append("text")
+            .attr("y", 75)
+            .attr("x", m_margin.left)
+            .attr("class", "label")
+            .text("* Specifies child deaths per 1,000 live births");
     }
 
     /**/
