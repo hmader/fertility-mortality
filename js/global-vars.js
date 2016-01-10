@@ -39,7 +39,7 @@ var slideText = [{
     {
         "slide": 1,
         "title": "Millenium Development Goals",
-        "text": "<p>The Millenium Development Goal (MDG) target for Under-5 Mortality is as follows: <strong>“reduce child mortality globally by two-thirds, from 87* children of every 1,000 dying before age 5 in 1990 to 29 of every 1,000 in 2015”</strong> <a src='http://www.unicef.org/mdg/index_childmortality.htm'>(UNICEF)</a>. According to the most recent UNICEF report, the global Under-5 Mortality rate stands just below 43, and not yet reached the goal for 2015. </p><p class='note'>*There is a discrepancy between the MDG statement for the World Under-5 Mortality rate in 1990 and what the data shows. This is being looked into, but the chart below shows data that does not match the MDG statement.</p>"
+        "text": "<p>The Millenium Development Goal (MDG) target for Under-5 Mortality is as follows: <strong>“reduce child mortality globally by two-thirds, from 87* children of every 1,000 dying before age 5 in 1990 to 29 of every 1,000 in 2015”</strong> <a href='http://www.unicef.org/mdg/index_childmortality.htm'>(UNICEF)</a>. According to the most recent UNICEF report, the global Under-5 Mortality rate stands just below 43, and not yet reached the goal for 2015. </p><p class='note'>*There is a discrepancy between the MDG statement for the World Under-5 Mortality rate in 1990 and what the data shows. This is being looked into, but the chart below shows data that does not match the MDG statement.</p>"
                 },
     {
         "slide": 2,
