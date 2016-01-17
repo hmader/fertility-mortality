@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/chroniton.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<body>
+    <!--
+
+    <div id="intro" class="col-sm-12 col-md-12">
+        <h2 class="header">UNICEF Proj</h2>
+        <p></p>
+    </div>
+-->
+
+    <div id="vis-wrap" class="col-md-7 col-sm-7 col-xs-12">
+        <div id="vis" class="vis"></div>
+        <div id="slider"></div>
+    </div>
+
+    <div id="text-wrap" class="col-md-5 col-sm-5 col-xs-12">
+        <button class="go previous" onclick="prevSlide()">Previous</button>
+        <button class="go next" onclick="nextSlide()">Next</button>
+        <h2 id="slideHeader">Fertility-Mortality Over Time</h2>
+        <div id="slideText"></div>
+        <!--
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+-->
+    </div>
+    <div id="vis-sub" class="vis col-sm-10 col-md-10"></div>
+    <div class="end-slide hide col-sm-12 col-md-12 col-lg-12">
+        
+        <div class="spacer summary k col-sm-6">
+
+            <h2>What we know</h2>
+            <ul>
+                <li>Progress has been made in Under-5 Mortality. Since 1990, when the Millenium Development Goals were set, the world has made significant progress in reducing the number of under-5 child deaths.</li>
+                <li>However, as of 2015 - the end point for the Millenium Development Goals - the world has yet to reach its mark in U5MR reduction.</li>
+                <li>There is a strong correlation between Fertility rates and Under-5 Mortality rates. By calculating the r-value, which measures the strength of a correlation, we have determined that Fertility has a stronger link to Under-5 Mortality than other factors such as Health Expenditure, Poverty, and Education.</li>
+                <li>This relationship has shown to be a pattern over time, as we could tell by looking at the Fertility-Mortality relationship since 1970.</li>
+            </ul>
+        </div>
+        <div class="spacer summary dk col-sm-6">
+
+            <h2>What we don't know</h2>
+            <ul>
+                <li>Whether Fertility and Mortality directly influence each other or if there are other factors we haven't explored that affect Fertility and Mortality. Are there other correlations, for example: do Fertility rates tend to change with economy?</li>
+                <li>If Fertility is actually directly affecting U5MR, what are the strongest influencers on Fertility? Contraception? Education? Gender Equality?</li>
+                <li>Although there are many factors that likely affect Under-5 Mortality, one factor that may play an important role is Fertility rate, considering its strong tie to U5MR. Although these ties are not fully understood, it could be incredibly beneficial to reasearch the relationship on an in-depth level.</li>
+            </ul>
+        </div>
+
+        <div class="end col-sm-12">
+            <button class="go previous" onclick="prevSlide()">Previous</button>
+        </div>
+        <div class="end col-sm-12">
+            <p>Data sources: <a href="http://data.unicef.org/" target="_blank">UNICEF</a>, <a href="https://www.cia.gov/library/publications/the-world-factbook/fields/2046.html" target="_blank">CIA World Factbook</a>, <a href="http://data.worldbank.org/indicator" target="_blank">World Bank</a></p>
+        <p>Project by: <a href="http://halinamader.com/" target="_blank">Halina Mader</a></p>
+        </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//d3js.org/queue.v1.min.js"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script src="js/global-vars.js"></script>
+    <script src="js/linesOverTime.js"></script>
+    <script src="js/animated-line.js"></script>
+    <script src="js/chroniton-only.js"></script>
+    <script src="js/fertility-mortality-time.js"></script>
+    <script src="js/world-data.js"></script>
+    <script src="js/scatter.js"></script>
+    <script src="js/small-mults.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
