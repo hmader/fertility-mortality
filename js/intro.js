@@ -29,28 +29,5 @@ window.setInterval(function(){
         .attr("cy", function() { return Math.random() * height; })
         .attr("fill", "#242424")
         .attr("opacity", 1);
-}, 3000);
-
-//
-//function addCircle() {
-//
-//    svg.append("circle")
-//        .attr("r", radius)
-//        .attr("cx", x)
-//        .attr("cy", y)
-//        .attr("fill", "#242424")
-//        .attr("opacity",1);
-//
-//    if(x < width - 35) {
-//
-//        x += 25;
-//    } else {
-//
-//        x = 25;
-//        y -= 25;
-//    }
-//}
-// window.setInterval(function(){
-//    addCircle();
-//}, 3000);
+}, 4500);
 

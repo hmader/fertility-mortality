@@ -44,12 +44,12 @@ var slideText = [{
     {
         "slide": 2,
         "title": "Fertility Stands Out",
-        "text": "<p>When comparing the relationships between various societal and economic factors to Under-5 Mortality rates, the tightest linear relationship shows to be with Fertility rates.</p><p class='hint'>You can hover over the points to view the country it represents and that country's position on each chart (where data is available)</p>"
+        "text": "<p>When comparing the relationships between various societal and economic factors to Under-5 Mortality rates, the tightest linear relationship shows to be with Fertility rates. <strong><em>Fertility Rate</em> refers to the number of children born per woman.</strong></p><p class='hint'>You can hover over the points to view the country it represents and that country's position on each chart (where data is available)</p>"
                 },
     {
         "slide": 3,
         "title": "Fertility Stands Out",
-        "text": "<p>When comparing the relationships between various societal and economic factors to Under-5 Mortality rates, the tightest linear relationship shows to be with Fertility rates.</p><p>Trend lines and the r-value show how strong the correlation is. The closer to 1 or -1 the r-value, the stronger the correlation.</p><p>Fertility has the highest r-value, closely followed by Contraceptive Prevalence, which is <strong>the percentage of sexually active women who's partner or themselves are using a method of birth control</strong>. Given that contraception use is closely tied to pregnancies and fertility rates, this provides a greater indication that Fertility is closely tied to Under-5 Mortality.</p>"
+        "text": "<p>When comparing the relationships between various societal and economic factors to Under-5 Mortality rates, the tightest linear relationship shows to be with Fertility rates. <strong><em>Fertility Rate</em> refers to the number of children born per woman.</strong></p><p>Trend lines and the r-value show how strong the correlation is. The closer to 1 or -1 the r-value, the stronger the correlation.</p><p>Fertility has the highest r-value, closely followed by Contraceptive Prevalence, which is <strong>the percentage of sexually active women who's partner or themselves are using a method of birth control</strong>. Given that contraception use is closely tied to pregnancies and fertility rates, this provides a greater indication that Fertility is closely tied to Under-5 Mortality.</p>"
                 },
 
     {
