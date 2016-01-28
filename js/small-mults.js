@@ -179,7 +179,7 @@ function drawMultiples() {
             .style("text-anchor", "start")
             .attr("class", "multFactor")
             .attr("fill", "#808080")
-            .text("Factor: " + thisMeasure.method.replace('_', ' '));
+            .text("Factor: " + thisMeasure.method.replace(/_/g, ' '));
 
 
         /*---------------------------------------------------------------------
@@ -306,7 +306,7 @@ function drawMultiples() {
             myTooltip
                 .style("opacity", 1)
                 .style("display", null)
-                .html("<p><span class='tooltipHeader'>" + d.country + "</span></p>");
+                .html("<p><span class='tooltipHeader'>" + d.country.replace(/_/g, ' ') + "</span></p>");
         }
 
         function mousemoveFunc(d) {
